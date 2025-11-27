@@ -55,18 +55,69 @@ import Icon from '../components/Icon.astro';
             </div>
           </div>
 
-          <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
-            <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo de Machine Learning</h4>
+            <p class="text-gray-300 mb-4">
+              Se implementó un modelo de <strong>Máquinas de Soporte Vectorial (SVC)</strong> con kernel RBF 
+              para clasificar el tipo espectral estelar basándose en características planetarias. 
+              El modelo fue entrenado con validación cruzada estratificada y optimización de hiperparámetros.
+            </p>
+            
+            <div class="grid md:grid-cols-4 gap-4 mb-4">
               <div class="bg-space-blue p-4 rounded border border-gray-600">
                 <div class="text-3xl font-bold text-accent-blue mb-2">99%</div>
-                <div class="text-gray-300">Precisión del modelo SVC (RBF)</div>
+                <div class="text-gray-300 text-sm">Accuracy</div>
               </div>
               <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-lg font-bold text-accent-purple mb-2">Patrones Distintivos Confirmados</div>
-                <div class="text-gray-300 text-sm">El modelo valida la existencia de patrones claros en la distribución de tamaños planetarios</div>
+                <div class="text-2xl font-bold text-accent-purple mb-2">0.99</div>
+                <div class="text-gray-300 text-sm">F1-score (weighted)</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-blue mb-2">1.00</div>
+                <div class="text-gray-300 text-sm">Precision (tipo M/G)</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-purple mb-2">0.95-1.00</div>
+                <div class="text-gray-300 text-sm">Recall</div>
               </div>
             </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600 mb-4">
+              <h5 class="font-bold text-accent-purple mb-2">Métricas por Clase:</h5>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li><strong>Tipo M:</strong> Precision 1.00, Recall 0.95, F1-score 0.97</li>
+                <li><strong>Tipo G:</strong> Precision 1.00, Recall 0.95, F1-score 0.97</li>
+                <li><strong>Otros tipos:</strong> Precision 0.99, Recall 1.00, F1-score 0.99</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
+            <p class="text-gray-300 mb-3">
+              El modelo SVC con kernel RBF alcanzó una <strong>precisión excepcional del 99%</strong>, 
+              confirmando la existencia de patrones distintivos y altamente separables en el espacio de características 
+              entre diferentes tipos espectrales estelares basándose únicamente en propiedades planetarias.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Interpretación Científica:</strong> Este resultado sugiere que las características planetarias 
+              (radio, masa, período orbital, excentricidad, etc.) contienen información suficiente para discriminar 
+              el tipo espectral de la estrella anfitriona. Esto tiene implicaciones importantes para la formación planetaria, 
+              indicando que los procesos de formación y evolución planetaria están fuertemente acoplados a las propiedades 
+              estelares fundamentales.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Limitaciones y Consideraciones:</strong> Aunque el modelo muestra excelente rendimiento, 
+              es importante considerar que el dataset puede tener sesgos de observación (ciertos tipos de planetas 
+              son más fáciles de detectar alrededor de ciertos tipos de estrellas). Además, la alta precisión 
+              puede deberse parcialmente a la distribución desbalanceada de clases en el dataset.
+            </p>
+            <p class="text-gray-300">
+              <strong>Conclusión:</strong> El modelo valida científicamente que existe una relación fuerte y 
+              predecible entre las propiedades planetarias y el tipo espectral estelar, confirmando que las 
+              enanas rojas (tipo M) albergan planetas significativamente más pequeños que las estrellas tipo G, 
+              con patrones distintivos que pueden ser capturados mediante técnicas de machine learning.
+            </p>
           </div>
         </div>
       </div>
@@ -93,26 +144,64 @@ import Icon from '../components/Icon.astro';
             </div>
           </div>
 
-          <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo de Machine Learning</h4>
+            <p class="text-gray-300 mb-4">
+              Se implementó un modelo de <strong>k-Vecinos Más Cercanos (KNeighborsRegressor)</strong> para predecir 
+              la masa estelar basándose en características planetarias (período orbital, radio planetario, 
+              masa planetaria y excentricidad). El modelo fue entrenado con normalización de características y 
+              validación cruzada.
+            </p>
+            
             <div class="grid md:grid-cols-3 gap-4 mb-4">
               <div class="bg-space-blue p-4 rounded border border-gray-600">
                 <div class="text-2xl font-bold text-accent-blue mb-2">0.22</div>
                 <div class="text-gray-300 text-sm">Error Absoluto Medio (MAE)</div>
+                <div class="text-gray-400 text-xs mt-1">en masas solares</div>
               </div>
               <div class="bg-space-blue p-4 rounded border border-gray-600">
                 <div class="text-2xl font-bold text-accent-purple mb-2">0.34</div>
                 <div class="text-gray-300 text-sm">Coeficiente R²</div>
+                <div class="text-gray-400 text-xs mt-1">34% varianza explicada</div>
               </div>
               <div class="bg-space-blue p-4 rounded border border-gray-600">
                 <div class="text-2xl font-bold text-accent-blue mb-2">KNN</div>
                 <div class="text-gray-300 text-sm">Modelo de Regresión</div>
+                <div class="text-gray-400 text-xs mt-1">k=5 vecinos</div>
               </div>
             </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
+            <p class="text-gray-300 mb-3">
+              El modelo de regresión k-NN logró un <strong>Error Absoluto Medio (MAE) de 0.22 masas solares</strong> 
+              y un <strong>coeficiente de determinación R² de 0.34</strong>, indicando que el modelo explica 
+              aproximadamente el 34% de la variabilidad en la masa estelar basándose en características planetarias.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Interpretación Científica:</strong> El R² de 0.34 sugiere una <strong>correlación moderada</strong> 
+              entre la masa estelar y planetaria. Aunque existe cierta relación, no es lo suficientemente fuerte como 
+              para establecer una correlación clara y determinista. Esto es consistente con la teoría de formación planetaria, 
+              que indica que múltiples factores influyen en la masa planetaria final, incluyendo:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+              <li>La metalicidad de la estrella (abundancia de elementos pesados)</li>
+              <li>La distancia orbital (región de formación del planeta)</li>
+              <li>La edad del sistema planetario</li>
+              <li>Procesos de migración planetaria</li>
+              <li>Interacciones dinámicas entre múltiples planetas</li>
+            </ul>
+            <p class="text-gray-300 mb-3">
+              <strong>Limitaciones del Modelo:</strong> El MAE relativamente bajo (0.22 masas solares) puede ser engañoso, 
+              ya que la mayoría de las estrellas en el dataset tienen masas similares (concentradas en el rango 0.5-2 masas solares). 
+              El modelo puede estar aprovechando esta concentración más que capturando una relación física real.
+            </p>
             <p class="text-gray-300">
-              <strong>Conclusión:</strong> Aunque existe cierta relación, no es lo suficientemente fuerte como para 
-              establecer una correlación clara entre la masa estelar y planetaria. El R² de 0.34 indica que 
-              el modelo explica solo el 34% de la variabilidad, sugiriendo que otros factores también influyen.
+              <strong>Conclusión:</strong> Aunque existe cierta relación entre masa estelar y planetaria, 
+              <strong>no es lo suficientemente fuerte como para ser el único factor determinante</strong>. 
+              El análisis confirma que la formación planetaria es un proceso complejo influenciado por múltiples factores, 
+              y que la masa estelar, aunque relevante, no es el predictor dominante de la masa planetaria final.
             </p>
           </div>
         </div>
@@ -145,18 +234,71 @@ import Icon from '../components/Icon.astro';
             </div>
           </div>
 
-          <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
-            <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo de Machine Learning</h4>
+            <p class="text-gray-300 mb-4">
+              Se implementó un clasificador <strong>k-NN (k-Vecinos Más Cercanos)</strong> que predice si un planeta 
+              es de tipo Júpiter (gigante gaseoso con radio > 8 R⊕) basándose en características estelares 
+              (masa, metalicidad, temperatura efectiva). El modelo fue entrenado con k=5 vecinos y normalización de características.
+            </p>
+            
+            <div class="grid md:grid-cols-4 gap-4 mb-4">
               <div class="bg-space-blue p-4 rounded border border-gray-600">
                 <div class="text-2xl font-bold text-accent-blue mb-2">79%</div>
-                <div class="text-gray-300">Accuracy del modelo k-NN</div>
+                <div class="text-gray-300 text-sm">Accuracy</div>
               </div>
               <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-lg font-bold text-accent-purple mb-2">Predicción Exitosa</div>
-                <div class="text-gray-300 text-sm">El modelo permite identificar qué tipos de estrellas son más propensas a albergar planetas gigantes gaseosos</div>
+                <div class="text-2xl font-bold text-accent-purple mb-2">0.81</div>
+                <div class="text-gray-300 text-sm">Precision (no Júpiter)</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-blue mb-2">0.72</div>
+                <div class="text-gray-300 text-sm">Precision (Júpiter)</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-purple mb-2">0.78</div>
+                <div class="text-gray-300 text-sm">F1-score (weighted)</div>
               </div>
             </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600 mb-4">
+              <h5 class="font-bold text-accent-purple mb-2">Métricas por Clase:</h5>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li><strong>No Júpiter:</strong> Precision 0.81, Recall 0.92, F1-score 0.86</li>
+                <li><strong>Júpiter:</strong> Precision 0.72, Recall 0.51, F1-score 0.60</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
+            <p class="text-gray-300 mb-3">
+              El modelo k-NN alcanzó una <strong>precisión del 79%</strong> en la clasificación de planetas tipo Júpiter, 
+              con un rendimiento mejor para la clase mayoritaria (no Júpiter) que para la clase minoritaria (Júpiter). 
+              Esto es esperado dado el desbalance de clases en el dataset.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Interpretación Científica:</strong> El modelo confirma que las características estelares 
+              (masa, metalicidad, temperatura efectiva) contienen información predictiva sobre la presencia de 
+              planetas gigantes gaseosos. Las estrellas tipo <strong>F y G</strong> muestran mayor propensión a 
+              albergar planetas tipo Júpiter, mientras que las enanas rojas tipo <strong>M</strong> tienen 
+              significativamente menos planetas de este tipo.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Implicaciones Astrofísicas:</strong> Este resultado es consistente con los modelos teóricos 
+              de formación planetaria, que sugieren que:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+              <li>Las estrellas más masivas y calientes tienen discos protoplanetarios más grandes y masivos</li>
+              <li>La mayor metalicidad favorece la formación de núcleos planetarios grandes que pueden capturar gas</li>
+              <li>Las enanas rojas tienen discos más pequeños y menos masa disponible para formar gigantes gaseosos</li>
+            </ul>
+            <p class="text-gray-300">
+              <strong>Conclusión:</strong> El modelo demuestra que es posible predecir la presencia de planetas 
+              gigantes gaseosos basándose en características estelares, con una precisión del 79%. Esto tiene 
+              aplicaciones prácticas en la optimización de estrategias de búsqueda de exoplanetas, permitiendo 
+              priorizar observaciones hacia estrellas con mayor probabilidad de albergar planetas tipo Júpiter.
+            </p>
           </div>
         </div>
       </div>
@@ -192,24 +334,69 @@ import Icon from '../components/Icon.astro';
             </div>
           </div>
 
-          <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo de Machine Learning</h4>
             <p class="text-gray-300 mb-4">
-              Se compararon y optimizaron dos algoritmos con validación cruzada y optimización de hiperparámetros:
+              Se compararon y optimizaron dos algoritmos con validación cruzada estratificada (5 folds) y 
+              optimización exhaustiva de hiperparámetros mediante GridSearchCV. Los modelos fueron entrenados 
+              para clasificar la composición planetaria (rocosa vs gaseosa) utilizando únicamente características 
+              estelares (masa, radio, temperatura efectiva, metalicidad, edad, tipo espectral).
             </p>
+            
             <div class="grid md:grid-cols-2 gap-4 mb-4">
               <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-xl font-bold text-accent-blue mb-2">SVM RBF</div>
-                <div class="text-gray-300 text-sm">Máquinas de Soporte Vectorial</div>
+                <h5 class="font-bold text-accent-blue mb-3">SVM RBF</h5>
+                <div class="space-y-2 text-sm">
+                  <div><span class="text-gray-400">Accuracy:</span> <span class="text-accent-blue font-bold">71.35%</span></div>
+                  <div><span class="text-gray-400">Precision:</span> <span class="text-gray-300">71.71%</span></div>
+                  <div><span class="text-gray-400">Recall:</span> <span class="text-gray-300">71.35%</span></div>
+                  <div><span class="text-gray-400">F1-score:</span> <span class="text-gray-300">71.05%</span></div>
+                </div>
               </div>
               <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-xl font-bold text-accent-purple mb-2">k-NN</div>
-                <div class="text-gray-300 text-sm">k-Vecinos Más Cercanos</div>
+                <h5 class="font-bold text-accent-purple mb-3">k-NN</h5>
+                <div class="space-y-2 text-sm">
+                  <div><span class="text-gray-400">Accuracy:</span> <span class="text-accent-purple font-bold">71.91%</span></div>
+                  <div><span class="text-gray-400">Precision:</span> <span class="text-gray-300">71.91%</span></div>
+                  <div><span class="text-gray-400">Recall:</span> <span class="text-gray-300">71.91%</span></div>
+                  <div><span class="text-gray-400">F1-score:</span> <span class="text-gray-300">71.85%</span></div>
+                </div>
               </div>
             </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
+            <p class="text-gray-300 mb-3">
+              Ambos modelos alcanzaron rendimientos similares, con el <strong>k-NN ligeramente superior (71.91% accuracy)</strong> 
+              sobre el SVM RBF (71.35% accuracy). Estos resultados demuestran que es posible clasificar la composición 
+              planetaria con información únicamente estelar, aunque con limitaciones.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Interpretación Científica:</strong> El rendimiento del ~72% indica que las características estelares 
+              contienen información relevante pero no determinante sobre la composición planetaria. Los resultados del EDA 
+              mostraron patrones claros:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+              <li>Estrellas <strong>M y K</strong> tienden a tener más planetas rocosos (52-58%)</li>
+              <li>Estrellas <strong>F</strong> tienden a tener más planetas gaseosos (68.4%)</li>
+              <li>Estrellas <strong>G</strong> muestran una distribución más balanceada (55% rocosos, 45% gaseosos)</li>
+            </ul>
+            <p class="text-gray-300 mb-3">
+              <strong>Limitaciones y Consideraciones:</strong> El rendimiento del 72% sugiere que, aunque existe una relación, 
+              otros factores no capturados por las características estelares (como la distancia orbital, la edad del sistema, 
+              o procesos de migración) también influyen significativamente en la composición final del planeta.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Comparación de Modelos:</strong> El k-NN mostró un rendimiento ligeramente mejor y más balanceado 
+              (precision, recall y F1-score muy similares), mientras que el SVM RBF mostró una ligera diferencia entre 
+              precision y recall, sugiriendo un pequeño desbalance en las predicciones.
+            </p>
             <p class="text-gray-300">
-              Ambos modelos fueron evaluados mediante métricas de precisión, recall, F1-score y matrices de confusión, 
-              permitiendo clasificar la composición planetaria con información únicamente estelar.
+              <strong>Conclusión:</strong> Es posible clasificar la composición planetaria (rocosa vs gaseosa) usando solo 
+              características estelares con una precisión del ~72%. Esto confirma que el tipo espectral y otras propiedades 
+              estelares son predictores útiles pero no únicos de la composición planetaria, abriendo posibilidades para 
+              estudios futuros que incorporen variables adicionales para mejorar la precisión.
             </p>
           </div>
         </div>
@@ -239,31 +426,107 @@ import Icon from '../components/Icon.astro';
             </div>
           </div>
 
-          <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo de Machine Learning</h4>
             <p class="text-gray-300 mb-4">
-              Se implementaron y compararon <strong>cuatro modelos</strong> para predecir el tipo de planeta 
-              basándose únicamente en el año de descubrimiento:
+              Se implementaron y compararon <strong>cuatro modelos de clasificación</strong> con optimización de hiperparámetros 
+              mediante GridSearchCV y validación cruzada estratificada (5 folds). Todos los modelos fueron entrenados para 
+              predecir el tipo de planeta basándose únicamente en el año de descubrimiento, capturando así tendencias 
+              tecnológicas y metodológicas en la detección de exoplanetas.
             </p>
-            <div class="grid md:grid-cols-2 gap-4 mb-4">
-              <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-lg font-bold text-accent-blue mb-2">SVM RBF</div>
-              </div>
-              <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-lg font-bold text-accent-purple mb-2">Árboles de Decisión</div>
-              </div>
-              <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-lg font-bold text-accent-blue mb-2">Regresión Logística</div>
-              </div>
-              <div class="bg-space-blue p-4 rounded border border-gray-600">
-                <div class="text-lg font-bold text-accent-purple mb-2">k-NN</div>
-              </div>
+            
+            <div class="overflow-x-auto mb-4">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-gray-600">
+                    <th class="pb-2 pr-4 text-left text-accent-blue">Modelo</th>
+                    <th class="pb-2 pr-4 text-center text-accent-blue">Accuracy</th>
+                    <th class="pb-2 pr-4 text-center text-accent-blue">Precision</th>
+                    <th class="pb-2 pr-4 text-center text-accent-blue">Recall</th>
+                    <th class="pb-2 pr-4 text-center text-accent-blue">F1-score</th>
+                    <th class="pb-2 text-center text-accent-blue">CV Score</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-300">
+                  <tr class="border-b border-gray-700">
+                    <td class="py-2 pr-4">SVM RBF</td>
+                    <td class="py-2 pr-4 text-center"><span class="text-accent-blue font-bold">48.46%</span></td>
+                    <td class="py-2 pr-4 text-center">67.58%</td>
+                    <td class="py-2 pr-4 text-center">48.46%</td>
+                    <td class="py-2 pr-4 text-center">38.72%</td>
+                    <td class="py-2 text-center">49.39%</td>
+                  </tr>
+                  <tr class="border-b border-gray-700">
+                    <td class="py-2 pr-4">Árboles de Decisión</td>
+                    <td class="py-2 pr-4 text-center"><span class="text-accent-purple font-bold">47.21%</span></td>
+                    <td class="py-2 pr-4 text-center">34.60%</td>
+                    <td class="py-2 pr-4 text-center">47.21%</td>
+                    <td class="py-2 pr-4 text-center">38.69%</td>
+                    <td class="py-2 text-center">49.66%</td>
+                  </tr>
+                  <tr class="border-b border-gray-700">
+                    <td class="py-2 pr-4">Regresión Logística</td>
+                    <td class="py-2 pr-4 text-center"><span class="text-accent-blue font-bold">48.13%</span></td>
+                    <td class="py-2 pr-4 text-center">39.47%</td>
+                    <td class="py-2 pr-4 text-center">48.13%</td>
+                    <td class="py-2 pr-4 text-center">37.72%</td>
+                    <td class="py-2 text-center">48.99%</td>
+                  </tr>
+                  <tr class="border-b border-gray-700">
+                    <td class="py-2 pr-4">k-NN</td>
+                    <td class="py-2 pr-4 text-center"><span class="text-accent-purple font-bold">43.46%</span></td>
+                    <td class="py-2 pr-4 text-center">44.03%</td>
+                    <td class="py-2 pr-4 text-center">43.46%</td>
+                    <td class="py-2 pr-4 text-center">42.11%</td>
+                    <td class="py-2 text-center">45.66%</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 pr-4 text-gray-400">Baseline</td>
+                    <td class="py-2 pr-4 text-center text-gray-400">42.13%</td>
+                    <td class="py-2 pr-4 text-center text-gray-400">17.75%</td>
+                    <td class="py-2 pr-4 text-center text-gray-400">42.13%</td>
+                    <td class="py-2 pr-4 text-center text-gray-400">24.98%</td>
+                    <td class="py-2 text-center text-gray-400">-</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
+            <p class="text-gray-300 mb-3">
+              Los cuatro modelos evaluados lograron un rendimiento <strong>superior al baseline (42.13%)</strong>, 
+              con el <strong>SVM RBF alcanzando el mejor accuracy (48.46%)</strong>, seguido de Regresión Logística 
+              (48.13%) y Árboles de Decisión (47.21%). Aunque estos valores pueden parecer bajos, son significativamente 
+              mejores que el baseline y confirman que el año de descubrimiento contiene información predictiva relevante.
+            </p>
+            <p class="text-gray-300 mb-3">
+              <strong>Interpretación Científica:</strong> El hecho de que el año de descubrimiento sea predictivo del 
+              tipo de planeta refleja <strong>tendencias tecnológicas y metodológicas</strong> en la detección de exoplanetas:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+              <li><strong>Misión Kepler (2009-2018):</strong> Revolucionó la detección de planetas pequeños, 
+                especialmente supertierras, explicando el aumento desde 2014</li>
+              <li><strong>Métodos de detección:</strong> Diferentes técnicas (tránsito, velocidad radial, microlente) 
+                son más sensibles a diferentes tipos de planetas</li>
+              <li><strong>Evolución instrumental:</strong> Mejoras en sensibilidad y precisión han permitido detectar 
+                planetas más pequeños y distantes</li>
+              <li><strong>Estrategias de observación:</strong> Cambios en las prioridades científicas y objetivos de 
+                las misiones espaciales</li>
+            </ul>
+            <p class="text-gray-300 mb-3">
+              <strong>Análisis de Métricas:</strong> El SVM RBF mostró la mayor precision (67.58%) pero un recall 
+              más bajo (48.46%), indicando que cuando predice una clase, tiene alta confianza, pero puede estar 
+              perdiendo algunos casos. Los Árboles de Decisión mostraron el mejor CV Score (49.66%), sugiriendo 
+              mejor generalización.
+            </p>
             <p class="text-gray-300">
               <strong>Conclusión:</strong> Sí es posible predecir el tipo de planeta descubierto basándose en el año, 
-              ya que el año captura tendencias tecnológicas y metodológicas en la detección de exoplanetas. 
-              Los modelos logran un rendimiento superior al baseline, confirmando que el año de descubrimiento 
-              contiene información relevante sobre las tendencias temporales.
+              confirmando que el año de descubrimiento captura información sobre tendencias tecnológicas y metodológicas. 
+              Aunque el rendimiento (~48%) no es excepcional, es significativamente superior al baseline y demuestra que 
+              los avances tecnológicos han influido en los tipos de planetas descubiertos, con un aumento notable de 
+              supertierras desde 2014 debido principalmente a la misión Kepler.
             </p>
           </div>
         </div>
@@ -289,31 +552,31 @@ import Icon from '../components/Icon.astro';
                 <td class="py-4 pr-4">Distribución de Tamaños</td>
                 <td class="py-4 pr-4">SVC (RBF)</td>
                 <td class="py-4 pr-4">Accuracy</td>
-                <td class="py-4"><span class="text-accent-blue font-bold">99%</span></td>
+                <td class="py-4"><span class="text-accent-blue font-bold">99.0%</span></td>
               </tr>
               <tr class="border-b border-gray-700">
                 <td class="py-4 pr-4">Relación Masa-Masa</td>
                 <td class="py-4 pr-4">KNeighborsRegressor</td>
-                <td class="py-4 pr-4">R²</td>
-                <td class="py-4"><span class="text-accent-purple font-bold">0.34</span></td>
+                <td class="py-4 pr-4">R² / MAE</td>
+                <td class="py-4"><span class="text-accent-purple font-bold">0.34 / 0.22</span></td>
               </tr>
               <tr class="border-b border-gray-700">
                 <td class="py-4 pr-4">Planetas Gigantes</td>
                 <td class="py-4 pr-4">k-NN</td>
                 <td class="py-4 pr-4">Accuracy</td>
-                <td class="py-4"><span class="text-accent-blue font-bold">79%</span></td>
+                <td class="py-4"><span class="text-accent-blue font-bold">79.0%</span></td>
               </tr>
               <tr class="border-b border-gray-700">
                 <td class="py-4 pr-4">Clasificación Composición</td>
-                <td class="py-4 pr-4">SVM RBF / k-NN</td>
-                <td class="py-4 pr-4">F1-score (weighted)</td>
-                <td class="py-4"><span class="text-accent-purple font-bold">Optimizado</span></td>
+                <td class="py-4 pr-4">k-NN (mejor)</td>
+                <td class="py-4 pr-4">Accuracy</td>
+                <td class="py-4"><span class="text-accent-purple font-bold">71.9%</span></td>
               </tr>
               <tr>
                 <td class="py-4 pr-4">Descubrimientos Temporales</td>
-                <td class="py-4 pr-4">Múltiples modelos</td>
+                <td class="py-4 pr-4">SVM RBF (mejor)</td>
                 <td class="py-4 pr-4">Accuracy</td>
-                <td class="py-4"><span class="text-accent-blue font-bold">Superior a baseline</span></td>
+                <td class="py-4"><span class="text-accent-blue font-bold">48.5%</span> <span class="text-gray-400 text-sm">(baseline: 42.1%)</span></td>
               </tr>
             </tbody>
           </table>
