@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout title="Exoplanetas y Estrellas Anfitrionas - Proyecto de Ciencia de Datos">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <section class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent tracking-tight">
+        Correlaciones entre Exoplanetas y Estrellas Anfitrionas
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+        Investigación sobre cómo las propiedades de las estrellas influyen en las características de sus exoplanetas,
+        utilizando datos del telescopio espacial Kepler y técnicas avanzadas de análisis de datos.
+      </p>
+      <div class="mt-8 max-w-4xl mx-auto">
+        <img src="/images/visualizaciones/radio_medio_por_tipo_estrella.png" 
+             alt="Visualización: Radio medio por tipo de estrella" 
+             class="w-full rounded-lg border border-gray-600 shadow-xl" />
+        <p class="text-sm text-gray-400 mt-2 text-center">Hallazgo clave: Las enanas rojas (tipo M) albergan planetas significativamente más pequeños</p>
+      </div>
+      <div class="flex justify-center gap-4">
+        <a href={new URL('/preguntas', Astro.url).pathname} class="bg-accent-blue hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
+          Explorar Preguntas
+        </a>
+        <a href={new URL('/metodologia', Astro.url).pathname} class="bg-space-blue hover:bg-gray-700 border border-gray-600 text-white px-6 py-3 rounded-lg transition-colors">
+          Ver Metodología
+        </a>
+      </div>
+    </section>
+
+    <!-- Context Section -->
+    <section class="mb-16">
+      <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+        <h2 class="text-3xl font-display font-bold mb-6 text-accent-blue tracking-tight">Contexto y Motivación</h2>
+        <div class="prose prose-invert max-w-none">
+          <p class="text-lg text-gray-300 mb-4">
+            En las últimas décadas se han descubierto miles de exoplanetas en distintos sistemas estelares, 
+            alcanzando casi <strong className="text-accent-purple">6.000 planetas confirmados</strong> a la fecha. 
+            Esta abundancia de datos abre la oportunidad de analizar patrones en la formación de planetas de manera estadística.
+          </p>
+          <p class="text-lg text-gray-300 mb-4">
+            Un aspecto particularmente interesante es cómo las propiedades de la estrella anfitriona 
+            (como su tipo espectral, masa o temperatura) podrían influir en las características de sus planetas. 
+            Estudios previos sugieren, por ejemplo, que las estrellas pequeñas de tipo M (enanas rojas) 
+            prácticamente no albergan planetas de tamaño Neptuno, a diferencia de estrellas más masivas.
+          </p>
+          <p class="text-lg text-gray-300">
+            Comprender estas relaciones es valioso para la comunidad científica astronómica, ya que aporta información 
+            sobre los procesos de formación planetaria y puede guiar la búsqueda de nuevos mundos.
+          </p>
+          <p class="text-lg text-gray-300 mt-4">
+            <strong class="text-accent-purple">¿Por qué es importante?</strong> Este análisis contribuye a entender 
+            los mecanismos de formación planetaria y permite optimizar estrategias de búsqueda de exoplanetas. 
+            Los resultados pueden guiar decisiones sobre qué estrellas observar para encontrar ciertos tipos de planetas, 
+            optimizando recursos y tiempo de observación en telescopios espaciales y terrestres.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objetivos Section -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Objetivos del Proyecto</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="mb-4">
+            <Icon name="search" size={48} class="text-accent-blue" />
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-accent-blue">Identificar Correlaciones</h3>
+          <p class="text-gray-300">
+            Cuantificar relaciones significativas entre variables estelares (masa, temperatura, tipo espectral) 
+            y variables planetarias (masa, radio, órbita).
+          </p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="mb-4">
+            <Icon name="chart" size={48} class="text-accent-purple" />
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-accent-blue">Comprobar Hipótesis</h3>
+          <p class="text-gray-300">
+            Verificar diferencias en poblaciones de planetas según tipo de estrella, 
+            como la frecuencia de planetas gigantes alrededor de estrellas de baja masa.
+          </p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="mb-4">
+            <Icon name="rocket" size={48} class="text-accent-blue" />
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-accent-blue">Modelos Predictivos</h3>
+          <p class="text-gray-300">
+            Desarrollar modelos que estimen la probabilidad de cierto tipo de planeta 
+            en función de las características de la estrella.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Datos Section -->
+    <section class="mb-16">
+      <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+        <h2 class="text-3xl font-display font-bold mb-6 text-accent-blue tracking-tight">Fuente de Datos</h2>
+        <p class="text-lg text-gray-300 mb-4">
+          Para llevar a cabo el análisis se utilizaron datos públicos del 
+          <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" class="text-accent-blue hover:text-accent-purple underline">
+            NASA Exoplanet Archive
+          </a>, 
+          una base consolidada de exoplanetas confirmados.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <div>
+            <h3 class="text-xl font-bold mb-3 text-accent-purple">Datos Planetarios</h3>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>Masa y radio planetario</li>
+              <li>Período orbital y semieje mayor</li>
+              <li>Densidad y excentricidad</li>
+              <li>Método de descubrimiento</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-3 text-accent-purple">Datos Estelares</h3>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>Masa y radio estelar</li>
+              <li>Temperatura efectiva</li>
+              <li>Luminosidad y metalicidad</li>
+              <li>Tipo espectral</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-gray-400 mt-6 text-sm">
+          <strong>Volumen:</strong> ~6.000 registros (planetas confirmados) con decenas de columnas descriptivas cada uno.
+        </p>
+      </div>
+    </section>
+
+    <!-- Preguntas Preview -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Preguntas de Investigación</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href={`${new URL('/preguntas', Astro.url).pathname}#pregunta-1`} class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block">
+          <div class="text-2xl font-bold text-accent-blue mb-2">1</div>
+          <h3 class="text-lg font-bold mb-2">Distribución de Tamaños</h3>
+          <p class="text-gray-300 text-sm">
+            ¿Cómo varía el radio medio de los exoplanetas según el tipo de estrella?
+          </p>
+        </a>
+        <a href={`${new URL('/preguntas', Astro.url).pathname}#pregunta-2`} class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block">
+          <div class="text-2xl font-bold text-accent-blue mb-2">2</div>
+          <h3 class="text-lg font-bold mb-2">Relación Masa-Masa</h3>
+          <p class="text-gray-300 text-sm">
+            ¿Existe correlación entre la masa de la estrella y la masa de sus planetas?
+          </p>
+        </a>
+        <a href={`${new URL('/preguntas', Astro.url).pathname}#pregunta-3`} class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block">
+          <div class="text-2xl font-bold text-accent-blue mb-2">3</div>
+          <h3 class="text-lg font-bold mb-2">Planetas Gigantes</h3>
+          <p class="text-gray-300 text-sm">
+            ¿Cuál es la frecuencia de planetas tipo Júpiter en distintas estrellas?
+          </p>
+        </a>
+        <a href={`${new URL('/preguntas', Astro.url).pathname}#pregunta-4`} class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block">
+          <div class="text-2xl font-bold text-accent-blue mb-2">4</div>
+          <h3 class="text-lg font-bold mb-2">Clasificación</h3>
+          <p class="text-gray-300 text-sm">
+            ¿Es posible clasificar el tipo de exoplaneta según características estelares?
+          </p>
+        </a>
+        <a href={`${new URL('/preguntas', Astro.url).pathname}#pregunta-5`} class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block">
+          <div class="text-2xl font-bold text-accent-blue mb-2">5</div>
+          <h3 class="text-lg font-bold mb-2">Descubrimientos Temporales</h3>
+          <p class="text-gray-300 text-sm">
+            ¿Cuántos planetas de cierto tipo se descubren por año?
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="text-center">
+      <h2 class="text-3xl font-display font-bold mb-6 tracking-tight">Recursos del Proyecto</h2>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a href="https://github.com/DaniFantasy/Proyecto-ciencia-de-datos/blob/main/notebooks/Exoplanet_EDA_Notebook.ipynb" 
+           target="_blank"
+           class="flex items-center gap-2 bg-accent-blue hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
+          <Icon name="notebook" size={20} />
+          <span>Notebook EDA</span>
+        </a>
+        <a href="https://github.com/DaniFantasy/Proyecto-ciencia-de-datos/blob/main/notebooks/AnalisisML.ipynb" 
+           target="_blank"
+           class="flex items-center gap-2 bg-accent-purple hover:bg-purple-600 text-white px-6 py-3 rounded-lg transition-colors">
+          <Icon name="rocket" size={20} />
+          <span>Notebook ML</span>
+        </a>
+        <a href="https://github.com/DaniFantasy/Proyecto-ciencia-de-datos/tree/main/Data" 
+           target="_blank"
+           class="flex items-center gap-2 bg-space-blue hover:bg-gray-700 border border-gray-600 text-white px-6 py-3 rounded-lg transition-colors">
+          <Icon name="database" size={20} />
+          <span>Datos</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

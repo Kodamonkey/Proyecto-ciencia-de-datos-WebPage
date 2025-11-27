@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+  children: any;
+}
+
+const { href, class: className = '', children } = Astro.props;
+
+// Genera la ruta correcta respetando el base path
+const getPath = (path: string) => {
+  try {
+    return new URL(path, Astro.url).pathname;
+  } catch {
+    return path;
+  }
+};
+---
+
+<a href={getPath(href)} class={className}>
+  <slot />
+</a>
+

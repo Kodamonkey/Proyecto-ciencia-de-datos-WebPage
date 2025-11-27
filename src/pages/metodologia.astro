@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout title="Metodología - Exoplanetas y Estrellas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-display font-bold mb-12 text-center tracking-tight">Metodología</h1>
+
+    <!-- Overview -->
+    <section class="mb-16">
+      <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+        <h2 class="text-3xl font-display font-bold mb-6 text-accent-blue tracking-tight">Enfoque Metodológico</h2>
+        <p class="text-lg text-gray-300 mb-6">
+          El enfoque metodológico combina análisis estadísticos descriptivos, visualizaciones exploratorias exhaustivas 
+          y técnicas avanzadas de modelamiento supervisado. Para cada pregunta de investigación, se realiza primero un 
+          análisis exploratorio de datos (EDA) que incluye estadísticas descriptivas, visualizaciones con matplotlib y seaborn, 
+          y análisis de distribuciones.
+        </p>
+        <p class="text-lg text-gray-300">
+          Posteriormente, se implementan modelos de aprendizaje automático con un pipeline completo de preprocesamiento 
+          que incluye: codificación de variables categóricas, normalización de características, manejo de valores faltantes, 
+          y división estratificada de datos (80/20 train/test).
+        </p>
+      </div>
+    </section>
+
+    <!-- Pipeline -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Pipeline de Análisis</h2>
+      <div class="space-y-6">
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-3xl font-bold text-accent-blue">1</div>
+            <h3 class="text-2xl font-bold">Recolección y Limpieza de Datos</h3>
+          </div>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-12">
+            <li>Descarga de datos del NASA Exoplanet Archive</li>
+            <li>Manejo de valores faltantes e inconsistentes</li>
+            <li>Eliminación de outliers y datos erróneos</li>
+            <li>Validación de calidad de datos</li>
+          </ul>
+        </div>
+
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-3xl font-bold text-accent-blue">2</div>
+            <h3 class="text-2xl font-bold">Análisis Exploratorio de Datos (EDA)</h3>
+          </div>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-12">
+            <li>Estadísticas descriptivas (media, mediana, desviación estándar)</li>
+            <li>Visualizaciones con matplotlib y seaborn</li>
+            <li>Análisis de distribuciones y correlaciones</li>
+            <li>Identificación de patrones y tendencias</li>
+            <li>Comparaciones entre grupos (tipos espectrales, clases planetarias)</li>
+          </ul>
+        </div>
+
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-3xl font-bold text-accent-blue">3</div>
+            <h3 class="text-2xl font-bold">Preprocesamiento para Machine Learning</h3>
+          </div>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-12">
+            <li><strong>Codificación:</strong> LabelEncoder para variables categóricas</li>
+            <li><strong>Normalización:</strong> StandardScaler para características numéricas</li>
+            <li><strong>Manejo de valores faltantes:</strong> Imputación con mediana o eliminación</li>
+            <li><strong>División de datos:</strong> 80/20 train/test con estratificación</li>
+            <li><strong>Selección de características:</strong> Identificación de variables relevantes</li>
+          </ul>
+        </div>
+
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-3xl font-bold text-accent-blue">4</div>
+            <h3 class="text-2xl font-bold">Modelamiento</h3>
+          </div>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-12">
+            <li><strong>Validación cruzada:</strong> StratifiedKFold (5 folds) para robustez</li>
+            <li><strong>Optimización de hiperparámetros:</strong> GridSearchCV con búsqueda exhaustiva</li>
+            <li><strong>Modelos implementados:</strong>
+              <ul class="list-circle list-inside ml-6 mt-2 space-y-1">
+                <li>Máquinas de Soporte Vectorial (SVM) con kernel RBF</li>
+                <li>k-Vecinos Más Cercanos (k-NN)</li>
+                <li>Árboles de Decisión</li>
+                <li>Regresión Logística</li>
+                <li>KNeighborsRegressor (para regresión)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="text-3xl font-bold text-accent-blue">5</div>
+            <h3 class="text-2xl font-bold">Evaluación y Validación</h3>
+          </div>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-12">
+            <li><strong>Métricas de clasificación:</strong> Accuracy, Precision, Recall, F1-score (weighted)</li>
+            <li><strong>Métricas de regresión:</strong> MAE, MSE, R²</li>
+            <li><strong>Matrices de confusión:</strong> Análisis detallado de errores</li>
+            <li><strong>Comparación train vs test:</strong> Detección de overfitting</li>
+            <li><strong>Análisis por clase:</strong> Rendimiento específico por tipo de planeta/estrella</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Herramientas y Tecnologías</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="code" size={48} class="text-accent-blue" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Python</h3>
+          <p class="text-gray-300 text-sm">Lenguaje principal</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="chart" size={48} class="text-accent-purple" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Pandas</h3>
+          <p class="text-gray-300 text-sm">Manipulación de datos</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="rocket" size={48} class="text-accent-blue" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">scikit-learn</h3>
+          <p class="text-gray-300 text-sm">Machine Learning</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="chart" size={48} class="text-accent-purple" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Matplotlib/Seaborn</h3>
+          <p class="text-gray-300 text-sm">Visualizaciones</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="scale" size={48} class="text-accent-blue" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">NumPy</h3>
+          <p class="text-gray-300 text-sm">Operaciones numéricas</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="notebook" size={48} class="text-accent-purple" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Jupyter</h3>
+          <p class="text-gray-300 text-sm">Notebooks interactivos</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="planet" size={48} class="text-accent-blue" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Astro</h3>
+          <p class="text-gray-300 text-sm">Framework web</p>
+        </div>
+        <div class="bg-space-blue rounded-lg p-6 border border-gray-700 text-center">
+          <div class="mb-4 flex justify-center">
+            <Icon name="target" size={48} class="text-accent-purple" />
+          </div>
+          <h3 class="text-xl font-bold mb-2">Tailwind CSS</h3>
+          <p class="text-gray-300 text-sm">Estilos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Sources -->
+    <section class="mb-16">
+      <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+        <h2 class="text-3xl font-bold mb-6 text-accent-blue">Fuentes de Datos</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-accent-purple">NASA Exoplanet Archive</h3>
+            <p class="text-gray-300 mb-2">
+              Base de datos principal utilizada para el análisis. Específicamente:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+              <li><strong>Planetary Systems Composite Parameters (PSCompPars):</strong> Tabla de parámetros compuestos que incluye tanto parámetros estelares como planetarios</li>
+              <li><strong>Volumen:</strong> ~6.000 registros de exoplanetas confirmados</li>
+              <li><strong>Formato:</strong> CSV con decenas de columnas descriptivas</li>
+            </ul>
+            <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" 
+               class="text-accent-blue hover:text-accent-purple underline mt-2 inline-block">
+              Visitar NASA Exoplanet Archive →
+            </a>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-xl font-bold mb-2 text-accent-purple">Exoplanet.eu Catalog</h3>
+            <p class="text-gray-300">
+              Fuente complementaria utilizada para validación y análisis adicionales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="text-center mt-12">
+      <a href={new URL('/', Astro.url).pathname} class="bg-accent-blue hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
+        Volver al Inicio
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
