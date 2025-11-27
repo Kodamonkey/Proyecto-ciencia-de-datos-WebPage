@@ -42,24 +42,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="bg-space-dark rounded-lg p-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Resultados de Machine Learning</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Hipótesis</h3>
           <p class="text-gray-300 mb-4">
-            Se implementó un modelo de <strong>Máquinas de Soporte Vectorial (SVC)</strong> con kernel RBF 
-            para clasificar el tipo espectral estelar basándose en las características planetarias.
+            Basándonos en los hallazgos del EDA, planteamos la siguiente hipótesis:
           </p>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-3xl font-bold text-accent-blue mb-2">99%</div>
-              <div class="text-gray-300">Precisión del modelo</div>
-            </div>
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-3xl font-bold text-accent-purple mb-2">SVC</div>
-              <div class="text-gray-300">Modelo utilizado</div>
-            </div>
+          <p class="text-gray-300 mb-4 italic">
+            "Las características planetarias (radio, masa, período orbital, excentricidad, etc.) contienen 
+            información suficiente para discriminar el tipo espectral de la estrella anfitriona, confirmando 
+            que existen patrones distintivos y altamente separables en la distribución de tamaños planetarios 
+            según el tipo de estrella."
+          </p>
+        </div>
+
+        <div class="bg-space-dark rounded-lg p-6 mt-6">
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Metodología Propuesta</h3>
+          <p class="text-gray-300 mb-4">
+            Para validar esta hipótesis, se propone implementar un modelo de clasificación supervisada:
+          </p>
+          <div class="bg-space-blue p-4 rounded border border-gray-600 mb-4">
+            <h4 class="font-bold text-accent-blue mb-2">Modelo: Máquinas de Soporte Vectorial (SVC)</h4>
+            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+              <li><strong>Kernel:</strong> RBF (Radial Basis Function)</li>
+              <li><strong>Objetivo:</strong> Clasificar el tipo espectral estelar (M, G, Otros) basándose en características planetarias</li>
+              <li><strong>Variables predictoras:</strong> Radio planetario, masa planetaria, período orbital, excentricidad, método de descubrimiento, entre otras</li>
+              <li><strong>Preprocesamiento:</strong> Normalización (StandardScaler), codificación de variables categóricas, manejo de valores faltantes</li>
+              <li><strong>Validación:</strong> División train/test (70/30), validación cruzada estratificada para optimización de hiperparámetros</li>
+            </ul>
           </div>
-          <p class="text-gray-300 mt-4">
-            Este resultado confirma la existencia de <strong>patrones distintivos</strong> en la distribución 
-            de tamaños planetarios según el tipo de estrella anfitriona.
+          <p class="text-gray-300 text-sm">
+            Este modelo permitirá cuantificar la capacidad predictiva de las características planetarias 
+            para determinar el tipo espectral estelar, validando así la existencia de patrones distintivos 
+            observados en el análisis exploratorio.
           </p>
         </div>
       </div>
@@ -92,29 +105,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="bg-space-dark rounded-lg p-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Modelo de Regresión</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Hipótesis</h3>
           <p class="text-gray-300 mb-4">
-            Se implementó un modelo de <strong>k-Vecinos Más Cercanos (KNeighborsRegressor)</strong> 
-            para predecir la masa estelar basándose en características planetarias.
+            Basándonos en el análisis exploratorio, planteamos la siguiente hipótesis:
           </p>
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-2xl font-bold text-accent-blue mb-2">0.22</div>
-              <div class="text-gray-300 text-sm">Error Absoluto Medio (MAE)</div>
-            </div>
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-2xl font-bold text-accent-purple mb-2">0.34</div>
-              <div class="text-gray-300 text-sm">Coeficiente R²</div>
-            </div>
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-2xl font-bold text-accent-blue mb-2">KNN</div>
-              <div class="text-gray-300 text-sm">Modelo de Regresión</div>
-            </div>
+          <p class="text-gray-300 mb-4 italic">
+            "Existe una correlación positiva entre la masa de la estrella y la masa de sus planetas, 
+            donde las estrellas más masivas tienden a albergar planetas más masivos. Sin embargo, 
+            esta relación puede ser moderada debido a la influencia de múltiples factores en la formación planetaria."
+          </p>
+        </div>
+
+        <div class="bg-space-dark rounded-lg p-6 mt-6">
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Metodología Propuesta</h3>
+          <p class="text-gray-300 mb-4">
+            Para cuantificar esta relación, se propone implementar un modelo de regresión:
+          </p>
+          <div class="bg-space-blue p-4 rounded border border-gray-600 mb-4">
+            <h4 class="font-bold text-accent-blue mb-2">Modelo: k-Vecinos Más Cercanos (KNeighborsRegressor)</h4>
+            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+              <li><strong>Tipo:</strong> Regresión supervisada</li>
+              <li><strong>Variable objetivo:</strong> Masa estelar (en masas solares)</li>
+              <li><strong>Variables predictoras:</strong> Período orbital, radio planetario, masa planetaria, excentricidad</li>
+              <li><strong>Preprocesamiento:</strong> Normalización (StandardScaler), manejo de valores faltantes, filtrado de outliers</li>
+              <li><strong>Validación:</strong> División train/test (70/30), métricas: MAE, MSE, R²</li>
+            </ul>
           </div>
-          <p class="text-gray-300 mt-4">
-            <strong>Conclusión:</strong> Aunque existe cierta relación, no es lo suficientemente fuerte como para 
-            establecer una correlación clara entre la masa estelar y planetaria. El R² de 0.34 indica que 
-            el modelo explica solo el 34% de la variabilidad, sugiriendo que otros factores también influyen.
+          <p class="text-gray-300 text-sm">
+            Este modelo permitirá cuantificar la fuerza de la correlación entre masa estelar y planetaria, 
+            evaluando qué porcentaje de la variabilidad en la masa estelar puede ser explicado por características planetarias.
           </p>
         </div>
       </div>
@@ -133,37 +152,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
         
         <div class="bg-space-dark rounded-lg p-6 mb-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Análisis Descriptivo</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Resultados del EDA</h3>
           <p class="text-gray-300 mb-4">
             Se clasificaron los planetas por tamaño (rocoso, supertierra, neptuno, jupiter) 
             y se analizó su distribución según la clase espectral de la estrella anfitriona.
           </p>
-          <p class="text-gray-300">
-            Los resultados muestran que las estrellas tipo <strong>F y G</strong> tienen una mayor proporción 
-            de planetas gigantes tipo Júpiter, mientras que las enanas rojas tipo <strong>M</strong> 
+          <p class="text-gray-300 mb-4">
+            Los resultados del análisis exploratorio muestran que las estrellas tipo <strong>F y G</strong> tienen 
+            una mayor proporción de planetas gigantes tipo Júpiter, mientras que las enanas rojas tipo <strong>M</strong> 
             tienen significativamente menos planetas de este tipo.
           </p>
+          <div class="mt-4">
+            <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/jupiter_por_clase_espectral.png`} 
+                 alt="Planetas Júpiter por clase espectral" 
+                 class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
+            <p class="text-sm text-gray-400 mt-2 text-center">Frecuencia de planetas gigantes por tipo de estrella</p>
+          </div>
         </div>
 
         <div class="bg-space-dark rounded-lg p-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Modelo de Clasificación</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Hipótesis</h3>
           <p class="text-gray-300 mb-4">
-            Se implementó un clasificador <strong>k-NN</strong> que predice si un planeta es de tipo Júpiter 
-            basándose en características estelares (masa, metalicidad, temperatura efectiva).
+            Basándonos en los hallazgos del EDA, planteamos la siguiente hipótesis:
           </p>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-2xl font-bold text-accent-blue mb-2">79%</div>
-              <div class="text-gray-300">Accuracy</div>
-            </div>
-            <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-2xl font-bold text-accent-purple mb-2">k-NN</div>
-              <div class="text-gray-300">Modelo utilizado</div>
-            </div>
+          <p class="text-gray-300 mb-4 italic">
+            "Las características estelares (masa, metalicidad, temperatura efectiva) contienen información 
+            predictiva suficiente para identificar qué tipos de estrellas son más propensas a albergar 
+            planetas gigantes gaseosos tipo Júpiter."
+          </p>
+        </div>
+
+        <div class="bg-space-dark rounded-lg p-6 mt-6">
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Metodología Propuesta</h3>
+          <p class="text-gray-300 mb-4">
+            Para validar esta hipótesis, se propone implementar un modelo de clasificación binaria:
+          </p>
+          <div class="bg-space-blue p-4 rounded border border-gray-600 mb-4">
+            <h4 class="font-bold text-accent-blue mb-2">Modelo: k-Vecinos Más Cercanos (k-NN)</h4>
+            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+              <li><strong>Tipo:</strong> Clasificación binaria (Júpiter vs No Júpiter)</li>
+              <li><strong>Variable objetivo:</strong> Clase de planeta (Júpiter: radio > 8 R⊕)</li>
+              <li><strong>Variables predictoras:</strong> Masa estelar, metalicidad estelar, temperatura efectiva</li>
+              <li><strong>Preprocesamiento:</strong> Normalización (StandardScaler), manejo de valores faltantes</li>
+              <li><strong>Validación:</strong> División train/test (80/20), métricas: Accuracy, Precision, Recall, F1-score, matriz de confusión</li>
+            </ul>
           </div>
-          <p class="text-gray-300 mt-4">
-            El modelo permite identificar qué tipos de estrellas son más propensas a albergar planetas gigantes gaseosos, 
-            confirmando las hipótesis sobre la relación entre tipo espectral y presencia de Júpiteres.
+          <p class="text-gray-300 text-sm">
+            Este modelo permitirá cuantificar la capacidad predictiva de las características estelares 
+            para identificar la presencia de planetas gigantes gaseosos, validando la relación observada 
+            en el análisis exploratorio.
           </p>
         </div>
       </div>
@@ -193,7 +230,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li><strong>Estrellas tipo F:</strong> 31.6% rocosos, 68.4% gaseosos</li>
           </ul>
           <p class="text-gray-300 mb-4">
-            <strong>Conclusión del EDA:</strong> Las estrellas M y K tienden a tener MÁS planetas rocosos, 
+            <strong>Hallazgo del EDA:</strong> Las estrellas M y K tienden a tener MÁS planetas rocosos, 
             mientras que las estrellas F tienden a tener MÁS planetas gaseosos.
           </p>
           <div class="mt-4">
@@ -205,23 +242,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="bg-space-dark rounded-lg p-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Modelos Comparados</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Hipótesis</h3>
           <p class="text-gray-300 mb-4">
-            Se compararon y optimizaron dos algoritmos con validación cruzada y optimización de hiperparámetros:
+            Basándonos en los hallazgos del EDA, planteamos la siguiente hipótesis:
+          </p>
+          <p class="text-gray-300 mb-4 italic">
+            "Es posible clasificar la composición planetaria (rocosa vs gaseosa) utilizando únicamente 
+            características estelares (masa, radio, temperatura efectiva, metalicidad, edad, tipo espectral), 
+            ya que estas propiedades influyen en los procesos de formación planetaria."
+          </p>
+        </div>
+
+        <div class="bg-space-dark rounded-lg p-6 mt-6">
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Metodología Propuesta</h3>
+          <p class="text-gray-300 mb-4">
+            Para validar esta hipótesis, se propone comparar y optimizar dos algoritmos de clasificación:
           </p>
           <div class="grid md:grid-cols-2 gap-4 mb-4">
             <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-xl font-bold text-accent-blue mb-2">SVM RBF</div>
-              <div class="text-gray-300 text-sm">Máquinas de Soporte Vectorial</div>
+              <h4 class="font-bold text-accent-blue mb-2">SVM RBF</h4>
+              <p class="text-gray-300 text-sm">Máquinas de Soporte Vectorial con kernel RBF</p>
             </div>
             <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-xl font-bold text-accent-purple mb-2">k-NN</div>
-              <div class="text-gray-300 text-sm">k-Vecinos Más Cercanos</div>
+              <h4 class="font-bold text-accent-purple mb-2">k-NN</h4>
+              <p class="text-gray-300 text-sm">k-Vecinos Más Cercanos</p>
             </div>
           </div>
-          <p class="text-gray-300">
-            Ambos modelos fueron evaluados mediante métricas de precisión, recall, F1-score y matrices de confusión, 
-            permitiendo clasificar la composición planetaria con información únicamente estelar.
+          <div class="bg-space-blue p-4 rounded border border-gray-600">
+            <h4 class="font-bold text-accent-blue mb-2">Configuración Experimental:</h4>
+            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+              <li><strong>Variables predictoras:</strong> Masa estelar, radio estelar, temperatura efectiva, metalicidad, edad, tipo espectral</li>
+              <li><strong>Variable objetivo:</strong> Composición planetaria (rocosa vs gaseosa)</li>
+              <li><strong>Preprocesamiento:</strong> Normalización (StandardScaler), codificación de variables categóricas, manejo de valores faltantes</li>
+              <li><strong>Validación:</strong> División train/test (80/20), validación cruzada estratificada (5 folds)</li>
+              <li><strong>Optimización:</strong> GridSearchCV para optimización exhaustiva de hiperparámetros</li>
+              <li><strong>Métricas:</strong> Accuracy, Precision, Recall, F1-score (weighted), matrices de confusión</li>
+            </ul>
+          </div>
+          <p class="text-gray-300 text-sm mt-4">
+            Esta comparación permitirá determinar qué modelo es más efectivo para clasificar la composición 
+            planetaria basándose únicamente en información estelar, validando la hipótesis planteada.
           </p>
         </div>
       </div>
@@ -240,40 +300,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
         
         <div class="bg-space-dark rounded-lg p-6 mb-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Tendencias Temporales</h3>
-          <ul class="list-disc list-inside text-gray-300 space-y-2">
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Resultados del EDA</h3>
+          <p class="text-gray-300 mb-4">
+            El análisis exploratorio reveló las siguientes tendencias temporales en los descubrimientos:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
             <li>Las <strong>supertierras</strong> muestran un aumento significativo desde 2014</li>
             <li>Picos excepcionales en los años <strong>2014 y 2016</strong> para supertierras</li>
             <li>Los <strong>gigantes gaseosos</strong> mantienen una frecuencia más constante</li>
             <li>Existe una tendencia creciente en el tiempo para todos los tipos de planetas</li>
           </ul>
+          <div class="mt-4">
+            <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/descubrimientos_por_tipo_año.png`} 
+                 alt="Descubrimientos temporales" 
+                 class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
+            <p class="text-sm text-gray-400 mt-2 text-center">Evolución temporal de descubrimientos</p>
+          </div>
         </div>
 
         <div class="bg-space-dark rounded-lg p-6">
-          <h3 class="text-xl font-bold mb-4 text-accent-purple">Modelos de Clasificación</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Hipótesis</h3>
           <p class="text-gray-300 mb-4">
-            Se implementaron y compararon <strong>cuatro modelos</strong> para predecir el tipo de planeta 
-            basándose únicamente en el año de descubrimiento:
+            Basándonos en las tendencias observadas en el EDA, planteamos la siguiente hipótesis:
+          </p>
+          <p class="text-gray-300 mb-4 italic">
+            "El año de descubrimiento contiene información predictiva sobre el tipo de planeta detectado, 
+            ya que captura tendencias tecnológicas y metodológicas en la detección de exoplanetas. 
+            Los avances tecnológicos (como la misión Kepler) han influido significativamente en los 
+            tipos de planetas descubiertos, con un aumento notable de supertierras desde 2014."
+          </p>
+        </div>
+
+        <div class="bg-space-dark rounded-lg p-6 mt-6">
+          <h3 class="text-xl font-bold mb-4 text-accent-purple">Metodología Propuesta</h3>
+          <p class="text-gray-300 mb-4">
+            Para validar esta hipótesis, se propone implementar y comparar cuatro modelos de clasificación:
           </p>
           <div class="grid md:grid-cols-2 gap-4 mb-4">
             <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-lg font-bold text-accent-blue mb-2">SVM RBF</div>
+              <h4 class="font-bold text-accent-blue mb-2">SVM RBF</h4>
+              <p class="text-gray-300 text-sm">Máquinas de Soporte Vectorial con kernel RBF</p>
             </div>
             <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-lg font-bold text-accent-purple mb-2">Árboles de Decisión</div>
+              <h4 class="font-bold text-accent-purple mb-2">Árboles de Decisión</h4>
+              <p class="text-gray-300 text-sm">Decision Tree Classifier</p>
             </div>
             <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-lg font-bold text-accent-blue mb-2">Regresión Logística</div>
+              <h4 class="font-bold text-accent-blue mb-2">Regresión Logística</h4>
+              <p class="text-gray-300 text-sm">Logistic Regression</p>
             </div>
             <div class="bg-space-blue p-4 rounded border border-gray-600">
-              <div class="text-lg font-bold text-accent-purple mb-2">k-NN</div>
+              <h4 class="font-bold text-accent-purple mb-2">k-NN</h4>
+              <p class="text-gray-300 text-sm">k-Vecinos Más Cercanos</p>
             </div>
           </div>
-          <p class="text-gray-300">
-            <strong>Conclusión:</strong> Sí es posible predecir el tipo de planeta descubierto basándose en el año, 
-            ya que el año captura tendencias tecnológicas y metodológicas en la detección de exoplanetas. 
-            Los modelos logran un rendimiento superior al baseline, confirmando que el año de descubrimiento 
-            contiene información relevante sobre las tendencias temporales.
+          <div class="bg-space-blue p-4 rounded border border-gray-600">
+            <h4 class="font-bold text-accent-blue mb-2">Configuración Experimental:</h4>
+            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+              <li><strong>Variable predictora:</strong> Año de descubrimiento (única variable)</li>
+              <li><strong>Variable objetivo:</strong> Tipo de planeta (rocoso, supertierra, gigante gaseoso, etc.)</li>
+              <li><strong>Preprocesamiento:</strong> Normalización (StandardScaler) para modelos basados en distancias</li>
+              <li><strong>Validación:</strong> División train/test (80/20), validación cruzada estratificada (5 folds)</li>
+              <li><strong>Optimización:</strong> GridSearchCV para optimización exhaustiva de hiperparámetros</li>
+              <li><strong>Métricas:</strong> Accuracy, Precision, Recall, F1-score (weighted), comparación con baseline</li>
+            </ul>
+          </div>
+          <p class="text-gray-300 text-sm mt-4">
+            Esta comparación permitirá determinar si el año de descubrimiento contiene información predictiva 
+            relevante sobre el tipo de planeta, validando la hipótesis de que los avances tecnológicos han 
+            influido en los tipos de planetas descubiertos a lo largo del tiempo.
           </p>
         </div>
       </div>
@@ -287,4 +382,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </div>
 </BaseLayout>
+
+
 

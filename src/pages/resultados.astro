@@ -495,6 +495,24 @@ import Icon from '../components/Icon.astro';
 
           <div class="bg-space-dark rounded-lg p-6">
             <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
+            
+            <div class="bg-space-blue p-4 rounded border border-gray-600 mb-4">
+              <h5 class="font-bold text-accent-purple mb-2">¿Qué es el Baseline?</h5>
+              <p class="text-gray-300 text-sm mb-2">
+                El <strong>baseline</strong> es un clasificador "naive" o de referencia que siempre predice la clase mayoritaria 
+                en el conjunto de prueba. Se calcula identificando la clase más frecuente en los datos de prueba y asignando 
+                esa clase a todas las predicciones.
+              </p>
+              <p class="text-gray-300 text-sm mb-2">
+                <strong>Fórmula:</strong> Baseline = Clase más frecuente en y_test
+              </p>
+              <p class="text-gray-300 text-sm">
+                En este caso, el baseline tiene un accuracy del <strong>42.13%</strong>, lo que significa que la clase mayoritaria 
+                representa aproximadamente el 42% de los datos de prueba. Este valor sirve como <strong>punto de referencia mínimo</strong>: 
+                cualquier modelo que no supere este baseline no está aprendiendo información útil de los datos.
+              </p>
+            </div>
+
             <p class="text-gray-300 mb-3">
               Los cuatro modelos evaluados lograron un rendimiento <strong>superior al baseline (42.13%)</strong>, 
               con el <strong>SVM RBF alcanzando el mejor accuracy (48.46%)</strong>, seguido de Regresión Logística 
