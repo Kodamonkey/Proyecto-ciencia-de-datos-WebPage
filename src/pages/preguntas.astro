@@ -27,13 +27,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
           <div class="mt-4 grid md:grid-cols-2 gap-4">
             <div>
-              <img src={`${import.meta.env.BASE_URL}images/visualizaciones/radio_medio_por_tipo_estrella.png`} 
+              <img src={new URL('/images/visualizaciones/radio_medio_por_tipo_estrella.png', Astro.url).href} 
                    alt="Radio medio de exoplanetas por tipo de estrella" 
                    class="w-full rounded-lg border border-gray-600 shadow-lg" />
               <p class="text-sm text-gray-400 mt-2 text-center">Radio medio comparativo por tipo espectral</p>
             </div>
             <div>
-              <img src={`${import.meta.env.BASE_URL}images/visualizaciones/distribucion_radios_por_tipo.png`} 
+              <img src={new URL('/images/visualizaciones/distribucion_radios_por_tipo.png', Astro.url).href} 
                    alt="Distribución de radios planetarios" 
                    class="w-full rounded-lg border border-gray-600 shadow-lg" />
               <p class="text-sm text-gray-400 mt-2 text-center">Distribución de radios por tipo espectral</p>
@@ -84,7 +84,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             segmentando por rangos de masa estelar (≤2, 2-4, ≥4 masas solares).
           </p>
           <div class="mt-4">
-            <img src={`${import.meta.env.BASE_URL}images/visualizaciones/relacion_masa_masa.png`} 
+            <img src={new URL('/images/visualizaciones/relacion_masa_masa.png', Astro.url).href} 
                  alt="Relación masa-masa estrella-planeta" 
                  class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
             <p class="text-sm text-gray-400 mt-2 text-center">Scatter plot: Masa planetaria vs Masa estelar</p>
@@ -197,7 +197,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             mientras que las estrellas F tienden a tener MÁS planetas gaseosos.
           </p>
           <div class="mt-4">
-            <img src={`${import.meta.env.BASE_URL}images/visualizaciones/composicion_por_tipo_espectral.png`} 
+            <img src={new URL('/images/visualizaciones/composicion_por_tipo_espectral.png', Astro.url).href} 
                  alt="Distribución de composición planetaria por tipo espectral" 
                  class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
             <p class="text-sm text-gray-400 mt-2 text-center">Porcentaje de planetas rocosos vs gaseosos por tipo espectral</p>
