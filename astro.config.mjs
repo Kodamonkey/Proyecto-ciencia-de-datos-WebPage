@@ -4,10 +4,10 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://DaniFantasy.github.io',
+  site: 'https://Kodamonkey.github.io',
   // base solo se usa en producción (GitHub Pages)
   // En desarrollo local, no uses base para que funcione en localhost
-  base: import.meta.env.PROD ? '/Proyecto-ciencia-de-datos' : '/',
+  base: import.meta.env.PROD ? '/Proyecto-ciencia-de-datos-WebPage' : '/',
   output: 'static'
 });
 
