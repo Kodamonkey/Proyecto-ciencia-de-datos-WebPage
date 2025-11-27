@@ -93,31 +93,99 @@ import Icon from '../components/Icon.astro';
           </div>
 
           <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
-            <p class="text-gray-300 mb-3">
-              El modelo SVC con kernel RBF alcanzó una <strong>precisión excepcional del 99%</strong>, 
-              confirmando la existencia de patrones distintivos y altamente separables en el espacio de características 
-              entre diferentes tipos espectrales estelares basándose únicamente en propiedades planetarias.
-            </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Interpretación Científica:</strong> Este resultado sugiere que las características planetarias 
-              (radio, masa, período orbital, excentricidad, etc.) contienen información suficiente para discriminar 
-              el tipo espectral de la estrella anfitriona. Esto tiene implicaciones importantes para la formación planetaria, 
-              indicando que los procesos de formación y evolución planetaria están fuertemente acoplados a las propiedades 
-              estelares fundamentales.
-            </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Limitaciones y Consideraciones:</strong> Aunque el modelo muestra excelente rendimiento, 
-              es importante considerar que el dataset puede tener sesgos de observación (ciertos tipos de planetas 
-              son más fáciles de detectar alrededor de ciertos tipos de estrellas). Además, la alta precisión 
-              puede deberse parcialmente a la distribución desbalanceada de clases en el dataset.
-            </p>
-            <p class="text-gray-300">
-              <strong>Conclusión:</strong> El modelo valida científicamente que existe una relación fuerte y 
-              predecible entre las propiedades planetarias y el tipo espectral estelar, confirmando que las 
-              enanas rojas (tipo M) albergan planetas significativamente más pequeños que las estrellas tipo G, 
-              con patrones distintivos que pueden ser capturados mediante técnicas de machine learning.
-            </p>
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión Científica</h4>
+            
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Rendimiento del Modelo</h5>
+              <p class="text-gray-300 mb-3">
+                El modelo SVC con kernel RBF alcanzó una <strong>precisión excepcional del 99%</strong> con un 
+                <strong>F1-score weighted de 0.99</strong>, confirmando la existencia de patrones distintivos y 
+                altamente separables en el espacio de características entre diferentes tipos espectrales estelares. 
+                La precisión perfecta (1.00) para las clases M y G, junto con un recall del 95% para estas clases, 
+                indica que el modelo puede discriminar efectivamente entre tipos espectrales basándose únicamente 
+                en propiedades planetarias.
+              </p>
+              <p class="text-gray-300 mb-3">
+                El análisis de las métricas por clase revela que el modelo tiene un rendimiento ligeramente mejor 
+                para la clase "Otros" (precision 0.99, recall 1.00), lo cual es esperado dado que esta clase agrupa 
+                múltiples tipos espectrales y puede tener características más diversas y distintivas.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Interpretación Astrofísica</h5>
+              <p class="text-gray-300 mb-3">
+                Este resultado tiene <strong>implicaciones profundas para la teoría de formación planetaria</strong>. 
+                El hecho de que las características planetarias (radio, masa, período orbital, excentricidad, método 
+                de descubrimiento) contengan información suficiente para discriminar el tipo espectral estelar sugiere 
+                que los procesos de formación y evolución planetaria están <strong>fuertemente acoplados a las propiedades 
+                estelares fundamentales</strong> desde las primeras etapas del sistema.
+              </p>
+              <p class="text-gray-300 mb-3">
+                <strong>Mecanismos físicos subyacentes:</strong>
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Disco protoplanetario:</strong> El tamaño y la masa del disco dependen de la masa estelar. 
+                  Estrellas más masivas (tipo G) tienen discos más grandes con más material disponible, favoreciendo 
+                  la formación de planetas más grandes.</li>
+                <li><strong>Temperatura del disco:</strong> Las enanas rojas (tipo M) tienen discos más fríos, donde 
+                  el hielo puede condensarse más cerca de la estrella, pero la menor masa total limita el crecimiento 
+                  planetario.</li>
+                <li><strong>Línea de nieve:</strong> La distancia a la línea de nieve (donde el agua se congela) varía 
+                  según la luminosidad estelar, afectando qué tipos de planetas se forman en diferentes regiones.</li>
+                <li><strong>Vida útil del disco:</strong> Las enanas rojas tienen discos que pueden persistir más tiempo, 
+                  pero con menos masa total, resultando en planetas más pequeños pero más numerosos.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Validación de Hipótesis</h5>
+              <p class="text-gray-300 mb-3">
+                El modelo valida científicamente la hipótesis de que existen <strong>patrones distintivos y predecibles</strong> 
+                en la distribución de tamaños planetarios según el tipo espectral estelar. La precisión del 99% no solo 
+                confirma la existencia de estos patrones, sino que demuestra que son <strong>altamente separables</strong> 
+                en el espacio de características, lo que sugiere que las diferencias son sistemáticas y no aleatorias.
+              </p>
+              <p class="text-gray-300 mb-3">
+                Este resultado es consistente con observaciones astronómicas previas que indican que las enanas rojas 
+                (tipo M) albergan predominantemente planetas pequeños (supertierras y mini-Neptunos), mientras que las 
+                estrellas tipo G, similares al Sol, muestran una mayor diversidad incluyendo planetas gigantes gaseosos.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Limitaciones y Consideraciones Metodológicas</h5>
+              <p class="text-gray-300 mb-3">
+                Aunque el modelo muestra excelente rendimiento, es crucial considerar varias limitaciones:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Sesgos de observación:</strong> Ciertos tipos de planetas son más fáciles de detectar alrededor 
+                  de ciertos tipos de estrellas debido a limitaciones instrumentales. Por ejemplo, los planetas pequeños 
+                  son más difíciles de detectar alrededor de estrellas brillantes tipo F.</li>
+                <li><strong>Desbalance de clases:</strong> La clase "Otros" contiene significativamente más muestras que 
+                  las clases M y G, lo que puede contribuir a la alta precisión general. Sin embargo, el excelente 
+                  rendimiento en las clases minoritarias (M y G) sugiere que el modelo está capturando patrones reales.</li>
+                <li><strong>Variables confusoras:</strong> El método de descubrimiento puede estar correlacionado con el tipo 
+                  espectral (ciertos métodos funcionan mejor para ciertos tipos de estrellas), lo que podría inflar 
+                  artificialmente la precisión.</li>
+                <li><strong>Generalización:</strong> El modelo fue entrenado en datos históricos y puede no generalizar 
+                  perfectamente a descubrimientos futuros con nuevas tecnologías o metodologías.</li>
+              </ul>
+            </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600">
+              <h5 class="font-bold text-accent-purple mb-2">Conclusión</h5>
+              <p class="text-gray-300">
+                El modelo SVC con kernel RBF valida científicamente que existe una <strong>relación fuerte, predecible y 
+                altamente separable</strong> entre las propiedades planetarias y el tipo espectral estelar. Este resultado 
+                confirma que las enanas rojas (tipo M) albergan planetas significativamente más pequeños que las estrellas 
+                tipo G, con patrones distintivos que pueden ser capturados mediante técnicas de machine learning. 
+                La precisión del 99% no solo demuestra la existencia de estos patrones, sino que sugiere que las diferencias 
+                son sistemáticas y están profundamente enraizadas en los procesos físicos de formación planetaria, 
+                proporcionando evidencia empírica sólida para modelos teóricos de formación planetaria y abriendo 
+                posibilidades para aplicaciones prácticas en la optimización de estrategias de búsqueda de exoplanetas.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -173,36 +241,97 @@ import Icon from '../components/Icon.astro';
           </div>
 
           <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
-            <p class="text-gray-300 mb-3">
-              El modelo de regresión k-NN logró un <strong>Error Absoluto Medio (MAE) de 0.22 masas solares</strong> 
-              y un <strong>coeficiente de determinación R² de 0.34</strong>, indicando que el modelo explica 
-              aproximadamente el 34% de la variabilidad en la masa estelar basándose en características planetarias.
-            </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Interpretación Científica:</strong> El R² de 0.34 sugiere una <strong>correlación moderada</strong> 
-              entre la masa estelar y planetaria. Aunque existe cierta relación, no es lo suficientemente fuerte como 
-              para establecer una correlación clara y determinista. Esto es consistente con la teoría de formación planetaria, 
-              que indica que múltiples factores influyen en la masa planetaria final, incluyendo:
-            </p>
-            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
-              <li>La metalicidad de la estrella (abundancia de elementos pesados)</li>
-              <li>La distancia orbital (región de formación del planeta)</li>
-              <li>La edad del sistema planetario</li>
-              <li>Procesos de migración planetaria</li>
-              <li>Interacciones dinámicas entre múltiples planetas</li>
-            </ul>
-            <p class="text-gray-300 mb-3">
-              <strong>Limitaciones del Modelo:</strong> El MAE relativamente bajo (0.22 masas solares) puede ser engañoso, 
-              ya que la mayoría de las estrellas en el dataset tienen masas similares (concentradas en el rango 0.5-2 masas solares). 
-              El modelo puede estar aprovechando esta concentración más que capturando una relación física real.
-            </p>
-            <p class="text-gray-300">
-              <strong>Conclusión:</strong> Aunque existe cierta relación entre masa estelar y planetaria, 
-              <strong>no es lo suficientemente fuerte como para ser el único factor determinante</strong>. 
-              El análisis confirma que la formación planetaria es un proceso complejo influenciado por múltiples factores, 
-              y que la masa estelar, aunque relevante, no es el predictor dominante de la masa planetaria final.
-            </p>
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión Científica</h4>
+            
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Rendimiento del Modelo</h5>
+              <p class="text-gray-300 mb-3">
+                El modelo de regresión k-NN logró un <strong>Error Absoluto Medio (MAE) de 0.22 masas solares</strong> 
+                y un <strong>coeficiente de determinación R² de 0.34</strong>. El R² indica que el modelo explica 
+                aproximadamente el <strong>34% de la varianza</strong> en la masa estelar basándose en características 
+                planetarias (período orbital, radio planetario, masa planetaria, excentricidad).
+              </p>
+              <p class="text-gray-300 mb-3">
+                <strong>Interpretación del R²:</strong> Un R² de 0.34 se considera una <strong>correlación moderada</strong> 
+                en ciencias físicas. Esto significa que, aunque existe una relación estadísticamente significativa, 
+                la masa estelar no es el único factor determinante de la masa planetaria. El 66% restante de la varianza 
+                es explicado por otros factores no incluidos en el modelo.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Interpretación Astrofísica</h5>
+              <p class="text-gray-300 mb-3">
+                Este resultado es <strong>consistente con la teoría moderna de formación planetaria</strong>, que postula 
+                que la masa planetaria final es el resultado de múltiples procesos físicos complejos e interconectados:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Metalicidad estelar:</strong> Estrellas con mayor abundancia de elementos pesados (metalicidad) 
+                  tienen más material sólido disponible para formar núcleos planetarios grandes, que luego pueden capturar 
+                  gas y convertirse en gigantes gaseosos. La metalicidad puede ser tan importante o más que la masa estelar.</li>
+                <li><strong>Distancia orbital (región de formación):</strong> La distancia a la estrella determina la 
+                  temperatura del disco y la disponibilidad de diferentes materiales (roca vs hielo), influyendo 
+                  significativamente en la masa final del planeta.</li>
+                <li><strong>Edad del sistema:</strong> Sistemas más jóvenes pueden tener planetas aún en formación, mientras 
+                  que sistemas más antiguos pueden haber experimentado procesos de migración o pérdida de masa.</li>
+                <li><strong>Migración planetaria:</strong> Los planetas pueden migrar desde sus órbitas de formación, 
+                  alterando su composición y masa final. La migración tipo I (planetas pequeños) y tipo II (planetas 
+                  gigantes) tienen diferentes efectos.</li>
+                <li><strong>Interacciones dinámicas:</strong> En sistemas multi-planetarios, las interacciones gravitacionales 
+                  pueden alterar órbitas, causar colisiones o expulsiones, afectando la masa final de los planetas.</li>
+                <li><strong>Fotoevaporación:</strong> La radiación estelar puede evaporar las atmósferas de planetas 
+                  cercanos, reduciendo su masa, especialmente en enanas rojas activas.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Análisis Crítico del MAE</h5>
+              <p class="text-gray-300 mb-3">
+                El MAE de 0.22 masas solares puede parecer bajo, pero requiere interpretación cuidadosa:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Distribución de masas estelares:</strong> La mayoría de las estrellas en el dataset tienen masas 
+                  entre 0.5 y 2 masas solares. Un error de 0.22 masas solares representa aproximadamente un 11-44% de error 
+                  relativo, dependiendo de la masa estelar específica.</li>
+                <li><strong>Efecto de concentración:</strong> El modelo puede estar aprovechando la concentración de datos 
+                  en un rango estrecho, prediciendo valores cercanos a la media, más que capturando una relación física 
+                  robusta entre masa estelar y planetaria.</li>
+                <li><strong>Comparación con variabilidad:</strong> Si la masa estelar varía típicamente entre 0.1 y 3 masas 
+                  solares, un error de 0.22 representa aproximadamente el 7% del rango total, lo cual es moderado pero 
+                  no excepcional.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Implicaciones para la Formación Planetaria</h5>
+              <p class="text-gray-300 mb-3">
+                El R² de 0.34 sugiere que la masa estelar es un <strong>factor relevante pero no dominante</strong> en 
+                la determinación de la masa planetaria. Esto tiene importantes implicaciones:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Modelos teóricos:</strong> Los modelos de formación planetaria deben considerar múltiples factores 
+                  simultáneamente, no solo la masa estelar. La metalicidad y la distancia orbital pueden ser igual o más 
+                  importantes.</li>
+                <li><strong>Búsqueda de exoplanetas:</strong> Las estrategias de búsqueda no deben basarse únicamente en 
+                  la masa estelar, sino considerar también metalicidad, edad y otras propiedades del sistema.</li>
+                <li><strong>Diversidad planetaria:</strong> La baja correlación explica la enorme diversidad observada 
+                  en sistemas planetarios, donde estrellas similares pueden albergar planetas muy diferentes.</li>
+              </ul>
+            </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600">
+              <h5 class="font-bold text-accent-purple mb-2">Conclusión</h5>
+              <p class="text-gray-300">
+                El análisis confirma que existe una <strong>relación moderada (R² = 0.34)</strong> entre masa estelar y 
+                planetaria, pero <strong>no es lo suficientemente fuerte como para ser el único factor determinante</strong>. 
+                La formación planetaria es un proceso complejo y multifactorial donde la masa estelar juega un papel 
+                relevante pero no dominante. El 66% de la varianza no explicada por el modelo sugiere que otros factores 
+                (metalicidad, distancia orbital, edad, migración, interacciones dinámicas) son igual o más importantes. 
+                Este resultado es consistente con la teoría moderna de formación planetaria y subraya la necesidad de 
+                modelos más complejos que incorporen múltiples variables estelares y del sistema para predecir con mayor 
+                precisión las propiedades planetarias.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -271,34 +400,97 @@ import Icon from '../components/Icon.astro';
           </div>
 
           <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
-            <p class="text-gray-300 mb-3">
-              El modelo k-NN alcanzó una <strong>precisión del 79%</strong> en la clasificación de planetas tipo Júpiter, 
-              con un rendimiento mejor para la clase mayoritaria (no Júpiter) que para la clase minoritaria (Júpiter). 
-              Esto es esperado dado el desbalance de clases en el dataset.
-            </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Interpretación Científica:</strong> El modelo confirma que las características estelares 
-              (masa, metalicidad, temperatura efectiva) contienen información predictiva sobre la presencia de 
-              planetas gigantes gaseosos. Las estrellas tipo <strong>F y G</strong> muestran mayor propensión a 
-              albergar planetas tipo Júpiter, mientras que las enanas rojas tipo <strong>M</strong> tienen 
-              significativamente menos planetas de este tipo.
-            </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Implicaciones Astrofísicas:</strong> Este resultado es consistente con los modelos teóricos 
-              de formación planetaria, que sugieren que:
-            </p>
-            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
-              <li>Las estrellas más masivas y calientes tienen discos protoplanetarios más grandes y masivos</li>
-              <li>La mayor metalicidad favorece la formación de núcleos planetarios grandes que pueden capturar gas</li>
-              <li>Las enanas rojas tienen discos más pequeños y menos masa disponible para formar gigantes gaseosos</li>
-            </ul>
-            <p class="text-gray-300">
-              <strong>Conclusión:</strong> El modelo demuestra que es posible predecir la presencia de planetas 
-              gigantes gaseosos basándose en características estelares, con una precisión del 79%. Esto tiene 
-              aplicaciones prácticas en la optimización de estrategias de búsqueda de exoplanetas, permitiendo 
-              priorizar observaciones hacia estrellas con mayor probabilidad de albergar planetas tipo Júpiter.
-            </p>
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión Científica</h4>
+            
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Rendimiento del Modelo</h5>
+              <p class="text-gray-300 mb-3">
+                El modelo k-NN alcanzó una <strong>precisión del 79%</strong> con un <strong>F1-score weighted de 0.78</strong> 
+                en la clasificación binaria de planetas tipo Júpiter. El análisis de métricas por clase revela un 
+                <strong>desbalance en el rendimiento</strong>: la clase "No Júpiter" tiene mejor rendimiento (precision 0.81, 
+                recall 0.92, F1-score 0.86) que la clase "Júpiter" (precision 0.72, recall 0.51, F1-score 0.60).
+              </p>
+              <p class="text-gray-300 mb-3">
+                El <strong>recall bajo (0.51) para la clase Júpiter</strong> indica que el modelo está perdiendo 
+                aproximadamente la mitad de los planetas tipo Júpiter (falsos negativos). Esto es problemático para 
+                aplicaciones donde es importante detectar todos los planetas gigantes posibles, pero el modelo compensa 
+                con una precision razonable (0.72), indicando que cuando predice "Júpiter", tiene alta confianza.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Interpretación Astrofísica</h5>
+              <p class="text-gray-300 mb-3">
+                El modelo confirma que las características estelares (masa, metalicidad, temperatura efectiva) contienen 
+                <strong>información predictiva significativa</strong> sobre la presencia de planetas gigantes gaseosos. 
+                Este resultado es consistente con los <strong>modelos teóricos de formación planetaria</strong> y tiene 
+                profundas implicaciones:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Masa estelar y tamaño del disco:</strong> Las estrellas más masivas (tipo F y G) tienen discos 
+                  protoplanetarios más grandes y masivos. Un disco más grande proporciona más material y más tiempo para 
+                  la formación de núcleos planetarios grandes, que luego pueden capturar gas y convertirse en gigantes gaseosos.</li>
+                <li><strong>Metalicidad y formación de núcleos:</strong> La mayor metalicidad (abundancia de elementos pesados) 
+                  favorece la formación de núcleos planetarios grandes mediante acreción de planetesimales. El modelo de 
+                  nucleación requiere núcleos de al menos ~10 masas terrestres para capturar eficientemente gas del disco.</li>
+                <li><strong>Temperatura efectiva y línea de nieve:</strong> Estrellas más calientes (tipo F) tienen líneas 
+                  de nieve más distantes, donde el hielo puede condensarse. Esto proporciona más material sólido para formar 
+                  núcleos grandes en regiones más distantes del disco.</li>
+                <li><strong>Limitaciones de las enanas rojas:</strong> Las enanas rojas (tipo M) tienen discos más pequeños, 
+                  menos masa total disponible, y temperaturas más bajas que limitan la formación de núcleos grandes. 
+                  Además, su alta actividad magnética puede fotoevaporar discos más rápidamente, reduciendo el tiempo 
+                  disponible para la formación de gigantes gaseosos.</li>
+                <li><strong>Ventana de formación:</strong> Existe una "ventana de oportunidad" temporal para la formación de 
+                  gigantes gaseosos. Si el disco se disipa antes de que se forme un núcleo suficientemente grande, el planeta 
+                  permanecerá como una supertierra o mini-Neptuno.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Análisis del Desbalance de Clases</h5>
+              <p class="text-gray-300 mb-3">
+                El desbalance en el rendimiento entre clases refleja el <strong>desbalance natural en los datos</strong>: 
+                hay significativamente más planetas "No Júpiter" que planetas tipo Júpiter en el dataset. Esto es esperado 
+                y refleja la realidad observacional: los planetas gigantes gaseosos son menos comunes que los planetas pequeños.
+              </p>
+              <p class="text-gray-300 mb-3">
+                <strong>Estrategias de mejora potenciales:</strong> Para mejorar el recall de la clase Júpiter, se podrían 
+                implementar técnicas de balanceo de clases (SMOTE, undersampling, o ajuste de pesos de clase), aunque esto 
+                podría reducir ligeramente el accuracy general. Sin embargo, el rendimiento actual del 79% es sólido para 
+                un problema de clasificación binaria con desbalance de clases.
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Aplicaciones Prácticas</h5>
+              <p class="text-gray-300 mb-3">
+                Este modelo tiene aplicaciones directas en la <strong>optimización de estrategias de búsqueda de exoplanetas</strong>:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Priorización de observaciones:</strong> Los astrónomos pueden usar las características estelares 
+                  para priorizar qué estrellas observar en busca de planetas tipo Júpiter, optimizando el uso de tiempo de 
+                  telescopio y recursos computacionales.</li>
+                <li><strong>Planificación de misiones:</strong> Las misiones espaciales futuras pueden usar estos modelos para 
+                  seleccionar objetivos prometedores para estudios detallados de atmósferas planetarias.</li>
+                <li><strong>Validación de teorías:</strong> El modelo proporciona predicciones cuantitativas que pueden ser 
+                  comparadas con observaciones futuras, validando o refinando modelos teóricos de formación planetaria.</li>
+              </ul>
+            </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600">
+              <h5 class="font-bold text-accent-purple mb-2">Conclusión</h5>
+              <p class="text-gray-300">
+                El modelo k-NN demuestra que es posible predecir la presencia de planetas gigantes gaseosos basándose en 
+                características estelares con una <strong>precisión del 79%</strong>. Este resultado valida científicamente 
+                que las estrellas tipo <strong>F y G</strong> tienen mayor propensión a albergar planetas tipo Júpiter, 
+                mientras que las enanas rojas tipo <strong>M</strong> tienen significativamente menos planetas de este tipo. 
+                El rendimiento del modelo, aunque limitado por el desbalance de clases (especialmente en el recall de la 
+                clase Júpiter), es sólido y tiene aplicaciones prácticas inmediatas en la optimización de estrategias de 
+                búsqueda de exoplanetas. Los resultados son consistentes con los modelos teóricos de formación planetaria 
+                y proporcionan evidencia empírica de que la masa estelar, metalicidad y temperatura efectiva son factores 
+                importantes en la formación de planetas gigantes gaseosos.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -366,38 +558,122 @@ import Icon from '../components/Icon.astro';
           </div>
 
           <div class="bg-space-dark rounded-lg p-6">
-            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión</h4>
-            <p class="text-gray-300 mb-3">
-              Ambos modelos alcanzaron rendimientos similares, con el <strong>k-NN ligeramente superior (71.91% accuracy)</strong> 
-              sobre el SVM RBF (71.35% accuracy). Estos resultados demuestran que es posible clasificar la composición 
-              planetaria con información únicamente estelar, aunque con limitaciones.
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Análisis y Discusión Científica</h4>
+            
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Comparación de Modelos</h5>
+              <p class="text-gray-300 mb-3">
+                Ambos modelos alcanzaron rendimientos muy similares, con el <strong>k-NN ligeramente superior (71.91% accuracy)</strong> 
+                sobre el SVM RBF (71.35% accuracy). La diferencia es mínima (0.56 puntos porcentuales), sugiriendo que ambos 
+                algoritmos capturan patrones similares en los datos. El k-NN mostró un rendimiento más balanceado con precision, 
+                recall y F1-score muy similares (todos alrededor de 71.9%), mientras que el SVM RBF mostró una ligera diferencia 
+                entre precision (71.71%) y recall (71.35%), indicando un pequeño desbalance en las predicciones.
+              </p>
+              <p class="text-gray-300 mb-3">
+                <strong>Selección del modelo:</strong> Aunque el k-NN tiene un rendimiento ligeramente mejor, ambos modelos 
+                son prácticamente equivalentes para este problema. La elección entre ellos podría basarse en otros factores 
+                como interpretabilidad (k-NN es más interpretable) o tiempo de entrenamiento (SVM puede ser más rápido para 
+                datasets grandes).
+              </p>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Interpretación Astrofísica</h5>
+              <p class="text-gray-300 mb-3">
+                El rendimiento del ~72% indica que las características estelares contienen <strong>información relevante pero 
+                no determinante</strong> sobre la composición planetaria. Este resultado tiene importantes implicaciones para 
+                la teoría de formación planetaria:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Línea de nieve y composición:</strong> La distancia a la línea de nieve (donde el agua se congela) 
+                  varía según la luminosidad estelar. Planetas formados dentro de la línea de nieve tienden a ser rocosos, 
+                  mientras que los formados fuera pueden tener más hielo y convertirse en mini-Neptunos o gigantes gaseosos. 
+                  Sin embargo, la distancia orbital no está directamente en las características estelares, lo que limita la 
+                  precisión del modelo.</li>
+                <li><strong>Metalicidad y formación de núcleos:</strong> Estrellas con mayor metalicidad pueden formar 
+                  núcleos planetarios más grandes más rápidamente, favoreciendo la captura de gas y la formación de planetas 
+                  gaseosos. Esto explica parcialmente por qué las estrellas F (típicamente más metálicas) tienen más planetas 
+                  gaseosos.</li>
+                <li><strong>Masa estelar y fotoevaporación:</strong> Estrellas más masivas y calientes pueden fotoevaporar 
+                  las atmósferas de planetas cercanos, transformando mini-Neptunos en supertierras rocosas. Este proceso 
+                  depende de la distancia orbital, que no está en el modelo.</li>
+                <li><strong>Edad del sistema:</strong> Sistemas más jóvenes pueden tener planetas aún en formación, mientras 
+                  que sistemas más antiguos pueden haber experimentado procesos de pérdida de atmósfera o migración que alteran 
+                  la composición final.</li>
+              </ul>
             </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Interpretación Científica:</strong> El rendimiento del ~72% indica que las características estelares 
-              contienen información relevante pero no determinante sobre la composición planetaria. Los resultados del EDA 
-              mostraron patrones claros:
-            </p>
-            <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
-              <li>Estrellas <strong>M y K</strong> tienden a tener más planetas rocosos (52-58%)</li>
-              <li>Estrellas <strong>F</strong> tienden a tener más planetas gaseosos (68.4%)</li>
-              <li>Estrellas <strong>G</strong> muestran una distribución más balanceada (55% rocosos, 45% gaseosos)</li>
-            </ul>
-            <p class="text-gray-300 mb-3">
-              <strong>Limitaciones y Consideraciones:</strong> El rendimiento del 72% sugiere que, aunque existe una relación, 
-              otros factores no capturados por las características estelares (como la distancia orbital, la edad del sistema, 
-              o procesos de migración) también influyen significativamente en la composición final del planeta.
-            </p>
-            <p class="text-gray-300 mb-3">
-              <strong>Comparación de Modelos:</strong> El k-NN mostró un rendimiento ligeramente mejor y más balanceado 
-              (precision, recall y F1-score muy similares), mientras que el SVM RBF mostró una ligera diferencia entre 
-              precision y recall, sugiriendo un pequeño desbalance en las predicciones.
-            </p>
-            <p class="text-gray-300">
-              <strong>Conclusión:</strong> Es posible clasificar la composición planetaria (rocosa vs gaseosa) usando solo 
-              características estelares con una precisión del ~72%. Esto confirma que el tipo espectral y otras propiedades 
-              estelares son predictores útiles pero no únicos de la composición planetaria, abriendo posibilidades para 
-              estudios futuros que incorporen variables adicionales para mejorar la precisión.
-            </p>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Análisis de los Patrones del EDA</h5>
+              <p class="text-gray-300 mb-3">
+                Los resultados del EDA mostraron patrones claros que el modelo captura parcialmente:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Estrellas M y K:</strong> 52-58% planetas rocosos. Estas estrellas tienen discos más pequeños y 
+                  fríos, favoreciendo la formación de planetas pequeños y rocosos cerca de la estrella, donde el hielo no 
+                  puede condensarse.</li>
+                <li><strong>Estrellas F:</strong> 68.4% planetas gaseosos. Estrellas más masivas y calientes tienen discos 
+                  más grandes, líneas de nieve más distantes, y mayor metalicidad, favoreciendo la formación de núcleos grandes 
+                  que capturan gas eficientemente.</li>
+                <li><strong>Estrellas G:</strong> Distribución balanceada (55% rocosos, 45% gaseosos). Similar al Sol, estas 
+                  estrellas muestran la mayor diversidad planetaria, reflejando múltiples procesos de formación.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Limitaciones y Factores No Capturados</h5>
+              <p class="text-gray-300 mb-3">
+                El rendimiento del 72% sugiere que, aunque existe una relación, <strong>otros factores críticos</strong> no 
+                capturados por las características estelares también influyen significativamente:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Distancia orbital:</strong> Es el factor más importante para la composición. Planetas dentro de 
+                  la línea de nieve son predominantemente rocosos, mientras que los fuera pueden ser gaseosos. Esta variable 
+                  no está disponible cuando solo se conocen características estelares.</li>
+                <li><strong>Procesos de migración:</strong> Los planetas pueden migrar desde sus órbitas de formación, 
+                  alterando su composición. La migración tipo I (planetas pequeños) y tipo II (planetas gigantes) tienen 
+                  diferentes efectos.</li>
+                <li><strong>Historia de acreción:</strong> La composición final depende de la historia completa de acreción 
+                  de material, incluyendo colisiones, captura de gas, y pérdida de atmósfera.</li>
+                <li><strong>Interacciones dinámicas:</strong> En sistemas multi-planetarios, las interacciones gravitacionales 
+                  pueden alterar órbitas y composiciones.</li>
+                <li><strong>Fotoevaporación:</strong> La radiación estelar puede evaporar atmósferas, especialmente en planetas 
+                  cercanos a estrellas activas, transformando mini-Neptunos en supertierras rocosas.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Potencial de Mejora</h5>
+              <p class="text-gray-300 mb-3">
+                El rendimiento del 72% deja <strong>28% de error</strong>, lo que sugiere espacio significativo para mejora:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Incluir distancia orbital:</strong> Si se conociera la distancia orbital (semi-eje mayor), el 
+                  rendimiento probablemente mejoraría sustancialmente, ya que es el factor más determinante de la composición.</li>
+                <li><strong>Variables adicionales:</strong> Edad del sistema, metalicidad detallada, actividad estelar, 
+                  presencia de otros planetas en el sistema, podrían mejorar las predicciones.</li>
+                <li><strong>Modelos más complejos:</strong> Ensembles (Random Forest, Gradient Boosting) o deep learning 
+                  podrían capturar relaciones no lineales más complejas.</li>
+                <li><strong>Balanceo de clases:</strong> Si hay desbalance, técnicas de balanceo podrían mejorar el rendimiento 
+                  en clases minoritarias.</li>
+              </ul>
+            </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600">
+              <h5 class="font-bold text-accent-purple mb-2">Conclusión</h5>
+              <p class="text-gray-300">
+                Es posible clasificar la composición planetaria (rocosa vs gaseosa) usando solo características estelares con 
+                una precisión del <strong>~72%</strong>. Este resultado confirma que el tipo espectral y otras propiedades 
+                estelares son <strong>predictores útiles pero no únicos</strong> de la composición planetaria. El 28% de error 
+                restante refleja la influencia de factores no capturados, especialmente la distancia orbital, que es el factor 
+                más determinante de la composición pero no está disponible cuando solo se conocen características estelares. 
+                Los resultados validan que las estrellas M y K tienden a tener más planetas rocosos, mientras que las estrellas 
+                F tienden a tener más planetas gaseosos, proporcionando evidencia empírica para modelos teóricos de formación 
+                planetaria. Este trabajo abre posibilidades para estudios futuros que incorporen variables adicionales (distancia 
+                orbital, edad del sistema, metalicidad detallada) para mejorar la precisión y desarrollar modelos más completos 
+                de predicción de composición planetaria.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -533,19 +809,98 @@ import Icon from '../components/Icon.astro';
               <li><strong>Estrategias de observación:</strong> Cambios en las prioridades científicas y objetivos de 
                 las misiones espaciales</li>
             </ul>
-            <p class="text-gray-300 mb-3">
-              <strong>Análisis de Métricas:</strong> El SVM RBF mostró la mayor precision (67.58%) pero un recall 
-              más bajo (48.46%), indicando que cuando predice una clase, tiene alta confianza, pero puede estar 
-              perdiendo algunos casos. Los Árboles de Decisión mostraron el mejor CV Score (49.66%), sugiriendo 
-              mejor generalización.
-            </p>
-            <p class="text-gray-300">
-              <strong>Conclusión:</strong> Sí es posible predecir el tipo de planeta descubierto basándose en el año, 
-              confirmando que el año de descubrimiento captura información sobre tendencias tecnológicas y metodológicas. 
-              Aunque el rendimiento (~48%) no es excepcional, es significativamente superior al baseline y demuestra que 
-              los avances tecnológicos han influido en los tipos de planetas descubiertos, con un aumento notable de 
-              supertierras desde 2014 debido principalmente a la misión Kepler.
-            </p>
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Análisis Comparativo de Modelos</h5>
+              <p class="text-gray-300 mb-3">
+                La comparación de los cuatro modelos revela diferencias interesantes en sus estrategias de aprendizaje:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>SVM RBF (mejor accuracy: 48.46%):</strong> Muestra la mayor precision (67.58%) pero un recall 
+                  más bajo (48.46%), indicando una estrategia conservadora: cuando predice una clase, tiene alta confianza, 
+                  pero puede estar perdiendo algunos casos. El kernel RBF permite capturar relaciones no lineales complejas 
+                  en los datos temporales.</li>
+                <li><strong>Árboles de Decisión (mejor CV Score: 49.66%):</strong> Aunque tiene un accuracy ligeramente menor 
+                  (47.21%), muestra el mejor CV Score (49.66%), sugiriendo mejor generalización y menor sobreajuste. 
+                  Los árboles pueden capturar reglas de decisión basadas en umbrales temporales específicos.</li>
+                <li><strong>Regresión Logística (48.13%):</strong> Rendimiento intermedio con métricas balanceadas, sugiriendo 
+                  que existe cierta relación lineal entre el año y el tipo de planeta, aunque limitada.</li>
+                <li><strong>k-NN (43.46%):</strong> El peor rendimiento entre los modelos, posiblemente porque los años cercanos 
+                  pueden tener distribuciones de tipos de planetas muy diferentes debido a cambios tecnológicos abruptos 
+                  (como el lanzamiento de Kepler en 2009).</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Interpretación de las Tendencias Tecnológicas</h5>
+              <p class="text-gray-300 mb-3">
+                El hecho de que el año de descubrimiento sea predictivo refleja <strong>cambios históricos en las capacidades 
+                de detección</strong> más que relaciones físicas inherentes:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Era pre-Kepler (antes de 2009):</strong> Los descubrimientos se basaban principalmente en velocidad 
+                  radial, que es más sensible a planetas masivos cercanos a sus estrellas (gigantes gaseosos).</li>
+                <li><strong>Misión Kepler (2009-2018):</strong> Revolucionó la detección mediante tránsitos, siendo especialmente 
+                  sensible a planetas pequeños en órbitas cercanas. Esto explica el aumento masivo de supertierras desde 2014, 
+                  cuando se publicaron los primeros catálogos completos de Kepler.</li>
+                <li><strong>Picos en 2014 y 2016:</strong> Corresponden a publicaciones masivas de datos de Kepler, no necesariamente 
+                  a un aumento real en la formación de supertierras en esos años específicos.</li>
+                <li><strong>Era post-Kepler:</strong> Misiones como TESS continúan descubriendo principalmente planetas pequeños, 
+                  pero con mejor caracterización y detección de planetas en órbitas más distantes.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Limitaciones Fundamentales del Enfoque</h5>
+              <p class="text-gray-300 mb-3">
+                Es crucial reconocer que este modelo tiene <strong>limitaciones inherentes</strong> que no pueden ser superadas 
+                simplemente mejorando el algoritmo:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>No es una relación física:</strong> El año de descubrimiento no refleja propiedades físicas del planeta 
+                  o del sistema, sino capacidades tecnológicas y metodológicas de detección en ese momento histórico.</li>
+                <li><strong>No es predictivo del futuro:</strong> El modelo está entrenado en datos históricos y puede no generalizar 
+                  a años futuros donde las tecnologías y metodologías cambien significativamente.</li>
+                <li><strong>Refleja sesgos observacionales:</strong> Los tipos de planetas descubiertos en cada año reflejan más 
+                  qué podemos detectar que qué existe realmente en el universo.</li>
+                <li><strong>Cambios tecnológicos abruptos:</strong> Eventos como el lanzamiento de nuevas misiones pueden crear 
+                  discontinuidades que los modelos lineales o suaves no capturan bien.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="font-bold text-accent-blue mb-2">Valor Científico del Resultado</h5>
+              <p class="text-gray-300 mb-3">
+                A pesar de las limitaciones, este análisis tiene <strong>valor científico significativo</strong>:
+              </p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 mb-3 ml-4">
+                <li><strong>Historia de la detección de exoplanetas:</strong> Cuantifica cómo los avances tecnológicos han 
+                  transformado nuestro conocimiento, pasando de descubrir principalmente gigantes gaseosos a detectar 
+                  predominantemente supertierras.</li>
+                <li><strong>Validación de tendencias:</strong> Confirma que los patrones observados en el EDA (aumento de 
+                  supertierras desde 2014) son reales y no solo artefactos de visualización.</li>
+                <li><strong>Contexto para interpretación:</strong> Ayuda a entender que la distribución observada de tipos 
+                  de planetas está influenciada por capacidades de detección, no solo por la distribución real en el universo.</li>
+                <li><strong>Planificación de misiones futuras:</strong> Puede ayudar a predecir qué tipos de planetas se 
+                  descubrirán con nuevas tecnologías, aunque con limitaciones.</li>
+              </ul>
+            </div>
+
+            <div class="bg-space-blue p-4 rounded border border-gray-600">
+              <h5 class="font-bold text-accent-purple mb-2">Conclusión</h5>
+              <p class="text-gray-300">
+                Sí es posible predecir el tipo de planeta descubierto basándose en el año con un rendimiento del 
+                <strong>48.5%</strong>, significativamente superior al baseline (42.1%). Este resultado confirma que el año 
+                de descubrimiento captura información sobre <strong>tendencias tecnológicas y metodológicas</strong> en la 
+                detección de exoplanetas. Sin embargo, es crucial entender que esta relación refleja <strong>capacidades de 
+                detección históricas</strong> más que propiedades físicas inherentes. Los avances tecnológicos, especialmente 
+                la misión Kepler, han influido dramáticamente en los tipos de planetas descubiertos, con un aumento notable 
+                de supertierras desde 2014. Aunque el rendimiento no es excepcional, el hecho de que supere significativamente 
+                al baseline demuestra que existen patrones temporales sistemáticos en los descubrimientos. Este análisis 
+                proporciona valioso contexto histórico para interpretar la distribución observada de tipos de exoplanetas y 
+                subraya la importancia de considerar sesgos tecnológicos al hacer inferencias sobre la verdadera distribución 
+                de planetas en el universo.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -605,37 +960,113 @@ import Icon from '../components/Icon.astro';
     <!-- Conclusions -->
     <section class="mb-16">
       <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
-        <h2 class="text-3xl font-bold mb-6 text-accent-blue">Conclusiones</h2>
-        <div class="space-y-4 text-lg text-gray-300">
-          <p>
-            <strong class="text-accent-purple">1. Patrones Distintivos Confirmados:</strong> 
-            El análisis confirma que existen patrones claros en la distribución de propiedades planetarias 
-            según el tipo de estrella anfitriona. El modelo SVC con 99% de precisión valida esta hipótesis.
-          </p>
-          <p>
-            <strong class="text-accent-purple">2. Relación Masa-Masa Moderada:</strong> 
-            Aunque existe cierta correlación entre masa estelar y planetaria, no es lo suficientemente fuerte 
-            como para ser el único factor determinante. Otros factores como la metalicidad y la distancia 
-            orbital también influyen significativamente.
-          </p>
-          <p>
-            <strong class="text-accent-purple">3. Tipo Espectral como Predictor:</strong> 
-            El tipo espectral de la estrella es un predictor útil para estimar la probabilidad de encontrar 
-            ciertos tipos de planetas. Esto tiene aplicaciones prácticas en la optimización de estrategias 
-            de búsqueda de exoplanetas.
-          </p>
-          <p>
-            <strong class="text-accent-purple">4. Tendencias Tecnológicas:</strong> 
-            El análisis temporal revela que los avances tecnológicos (como la misión Kepler) han influido 
-            significativamente en los tipos de planetas descubiertos, con un aumento notable de supertierras 
-            desde 2014.
-          </p>
-          <p>
-            <strong class="text-accent-purple">5. Modelos Predictivos Exitosos:</strong> 
-            Los modelos de machine learning desarrollados demuestran que es posible predecir características 
-            planetarias basándose en información estelar, abriendo posibilidades para estudios futuros y 
-            aplicaciones en astrofísica.
-          </p>
+        <h2 class="text-3xl font-bold mb-6 text-accent-blue">Conclusiones Principales</h2>
+        <div class="space-y-6 text-lg text-gray-300">
+          
+          <div class="bg-space-dark rounded-lg p-6 border border-gray-600">
+            <h3 class="text-2xl font-bold mb-3 text-accent-purple">1. Patrones Distintivos Confirmados mediante Machine Learning</h3>
+            <p class="mb-3">
+              El análisis mediante modelos de machine learning confirma de manera cuantitativa que existen 
+              <strong>patrones altamente separables y predecibles</strong> en la distribución de propiedades planetarias 
+              según el tipo de estrella anfitriona. El modelo SVC con kernel RBF alcanzó una precisión del 
+              <strong>99%</strong> al clasificar el tipo espectral estelar basándose únicamente en características planetarias, 
+              validando científicamente que las enanas rojas (tipo M) albergan planetas significativamente más pequeños que 
+              las estrellas tipo G.
+            </p>
+            <p>
+              <strong>Implicación científica:</strong> Este resultado proporciona evidencia empírica sólida de que los procesos 
+              de formación y evolución planetaria están fuertemente acoplados a las propiedades estelares fundamentales desde 
+              las primeras etapas del sistema, confirmando predicciones de modelos teóricos de formación planetaria.
+            </p>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6 border border-gray-600">
+            <h3 class="text-2xl font-bold mb-3 text-accent-purple">2. Relación Masa-Masa: Moderada pero No Determinante</h3>
+            <p class="mb-3">
+              El análisis de regresión mediante k-NN reveló una <strong>correlación moderada (R² = 0.34)</strong> entre la masa 
+              estelar y planetaria, con un error absoluto medio de 0.22 masas solares. Este resultado indica que, aunque existe 
+              cierta relación, <strong>no es lo suficientemente fuerte como para ser el único factor determinante</strong> de la 
+              masa planetaria final.
+            </p>
+            <p>
+              <strong>Implicación científica:</strong> El 66% de varianza no explicada confirma que la formación planetaria es 
+              un proceso complejo y multifactorial, donde factores como la metalicidad, distancia orbital, edad del sistema, 
+              procesos de migración e interacciones dinámicas son igual o más importantes que la masa estelar. Esto subraya la 
+              necesidad de modelos más complejos que incorporen múltiples variables para predecir con mayor precisión las 
+              propiedades planetarias.
+            </p>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6 border border-gray-600">
+            <h3 class="text-2xl font-bold mb-3 text-accent-purple">3. Tipo Espectral como Predictor de Planetas Gigantes</h3>
+            <p class="mb-3">
+              El modelo k-NN demostró que es posible predecir la presencia de planetas gigantes gaseosos tipo Júpiter basándose 
+              en características estelares con una precisión del <strong>79%</strong>. Los resultados validan que las estrellas 
+              tipo <strong>F y G</strong> tienen mayor propensión a albergar planetas tipo Júpiter, mientras que las enanas rojas 
+              tipo <strong>M</strong> tienen significativamente menos planetas de este tipo.
+            </p>
+            <p>
+              <strong>Implicación práctica:</strong> Este resultado tiene aplicaciones directas en la optimización de estrategias 
+              de búsqueda de exoplanetas, permitiendo priorizar observaciones hacia estrellas con mayor probabilidad de albergar 
+              planetas gigantes gaseosos. Los resultados son consistentes con modelos teóricos que sugieren que estrellas más 
+              masivas, con mayor metalicidad y discos protoplanetarios más grandes, favorecen la formación de núcleos planetarios 
+              grandes que pueden capturar gas eficientemente.
+            </p>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6 border border-gray-600">
+            <h3 class="text-2xl font-bold mb-3 text-accent-purple">4. Composición Planetaria: Predictible pero con Limitaciones</h3>
+            <p class="mb-3">
+              La comparación de modelos SVM RBF y k-NN demostró que es posible clasificar la composición planetaria (rocosa vs 
+              gaseosa) usando solo características estelares con una precisión del <strong>~72%</strong>. El modelo k-NN mostró 
+              un rendimiento ligeramente superior (71.91%) con métricas más balanceadas.
+            </p>
+            <p>
+              <strong>Implicación científica:</strong> El 28% de error restante refleja la influencia de factores críticos no 
+              capturados, especialmente la <strong>distancia orbital</strong>, que es el factor más determinante de la composición 
+              pero no está disponible cuando solo se conocen características estelares. Los resultados confirman que las estrellas 
+              M y K tienden a tener más planetas rocosos, mientras que las estrellas F tienden a tener más planetas gaseosos, 
+              proporcionando evidencia empírica para modelos teóricos de formación planetaria.
+            </p>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6 border border-gray-600">
+            <h3 class="text-2xl font-bold mb-3 text-accent-purple">5. Tendencias Tecnológicas en los Descubrimientos</h3>
+            <p class="mb-3">
+              El análisis temporal mediante múltiples modelos de clasificación demostró que el año de descubrimiento contiene 
+              información predictiva sobre el tipo de planeta detectado, con el mejor modelo (SVM RBF) alcanzando un accuracy 
+              del <strong>48.5%</strong>, significativamente superior al baseline (42.1%).
+            </p>
+            <p>
+              <strong>Implicación metodológica:</strong> Este resultado confirma que los avances tecnológicos, especialmente la 
+              misión Kepler, han influido dramáticamente en los tipos de planetas descubiertos, con un aumento notable de 
+              supertierras desde 2014. Sin embargo, es crucial entender que esta relación refleja <strong>capacidades de detección 
+              históricas</strong> más que propiedades físicas inherentes, subrayando la importancia de considerar sesgos 
+              tecnológicos al hacer inferencias sobre la verdadera distribución de planetas en el universo.
+            </p>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6 border border-gray-600 mt-6">
+            <h3 class="text-2xl font-bold mb-3 text-accent-blue">Síntesis General</h3>
+            <p class="mb-3">
+              Este proyecto demuestra que las técnicas de <strong>ciencia de datos y machine learning</strong> pueden proporcionar 
+              insights valiosos sobre la formación y evolución de sistemas planetarios. Los modelos desarrollados validan 
+              científicamente relaciones teóricas propuestas en la literatura astrofísica, mientras que también revelan las 
+              limitaciones de predecir propiedades planetarias basándose únicamente en características estelares.
+            </p>
+            <p class="mb-3">
+              Los resultados tienen <strong>aplicaciones prácticas inmediatas</strong> en la optimización de estrategias de 
+              búsqueda de exoplanetas y en el refinamiento de modelos teóricos de formación planetaria. Además, el análisis 
+              temporal proporciona contexto histórico crucial para interpretar la distribución observada de tipos de exoplanetas, 
+              ayudando a distinguir entre patrones físicos reales y artefactos de detección tecnológica.
+            </p>
+            <p>
+              Este trabajo abre múltiples direcciones para investigación futura, incluyendo la incorporación de variables 
+              adicionales (distancia orbital, edad del sistema, metalicidad detallada), el desarrollo de modelos más complejos 
+              (ensembles, deep learning), y la validación con datos de nuevas misiones espaciales (TESS, JWST) que continuarán 
+              expandiendo nuestro conocimiento de los exoplanetas.
+            </p>
+          </div>
         </div>
       </div>
     </section>
