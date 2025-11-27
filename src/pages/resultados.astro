@@ -20,117 +20,259 @@ import Icon from '../components/Icon.astro';
       </div>
     </section>
 
-    <!-- Visualizations Gallery -->
+    <!-- Resultados por Pregunta -->
     <section class="mb-16">
-      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Visualizaciones Principales</h2>
-      <div class="bg-space-blue rounded-xl p-8 border border-gray-700 mb-8">
-        <p class="text-lg text-gray-300 mb-6 text-center">
-          Las siguientes visualizaciones resumen los hallazgos más importantes del análisis:
-        </p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/radio_medio_por_tipo_estrella.png`} 
-                 alt="Radio medio por tipo de estrella" 
-                 class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
-            <p class="text-sm text-gray-400 text-center">Comparación de radio medio planetario por tipo espectral</p>
+      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Resultados por Pregunta de Investigación</h2>
+
+      <!-- Pregunta 1 -->
+      <div id="resultado-pregunta-1" class="mb-12 scroll-mt-20">
+        <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-4xl font-bold text-accent-blue">1</div>
+            <h3 class="text-2xl font-display font-bold tracking-tight">Distribución de Tamaños según Tipo de Estrella</h3>
           </div>
-          <div>
-            <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/relacion_masa_masa.png`} 
-                 alt="Relación masa-masa" 
-                 class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
-            <p class="text-sm text-gray-400 text-center">Correlación entre masa estelar y planetaria</p>
+          
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Hallazgos Principales</h4>
+            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+              <li>Los planetas alrededor de estrellas tipo M tienen un <strong>radio medio significativamente menor</strong> que los de tipo G</li>
+              <li>Las enanas rojas (tipo M) tienden a albergar más planetas pequeños (supertierras) y menos gigantes gaseosos</li>
+              <li>Las distribuciones muestran <strong>patrones distintivos</strong> según el tipo espectral</li>
+            </ul>
+            <div class="mt-4 grid md:grid-cols-2 gap-4">
+              <div>
+                <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/radio_medio_por_tipo_estrella.png`} 
+                     alt="Radio medio de exoplanetas por tipo de estrella" 
+                     class="w-full rounded-lg border border-gray-600 shadow-lg" />
+                <p class="text-sm text-gray-400 mt-2 text-center">Radio medio comparativo por tipo espectral</p>
+              </div>
+              <div>
+                <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/distribucion_radios_por_tipo.png`} 
+                     alt="Distribución de radios planetarios" 
+                     class="w-full rounded-lg border border-gray-600 shadow-lg" />
+                <p class="text-sm text-gray-400 mt-2 text-center">Distribución de radios por tipo espectral</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/jupiter_por_clase_espectral.png`} 
-                 alt="Planetas Júpiter por clase espectral" 
-                 class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
-            <p class="text-sm text-gray-400 text-center">Frecuencia de planetas gigantes por tipo de estrella</p>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-3xl font-bold text-accent-blue mb-2">99%</div>
+                <div class="text-gray-300">Precisión del modelo SVC (RBF)</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-lg font-bold text-accent-purple mb-2">Patrones Distintivos Confirmados</div>
+                <div class="text-gray-300 text-sm">El modelo valida la existencia de patrones claros en la distribución de tamaños planetarios</div>
+              </div>
+            </div>
           </div>
-          <div>
-            <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/descubrimientos_por_tipo_año.png`} 
-                 alt="Descubrimientos temporales" 
-                 class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
-            <p class="text-sm text-gray-400 text-center">Evolución temporal de descubrimientos</p>
+        </div>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div id="resultado-pregunta-2" class="mb-12 scroll-mt-20">
+        <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-4xl font-bold text-accent-blue">2</div>
+            <h3 class="text-2xl font-display font-bold tracking-tight">Relación Masa-Masa (Estrella-Planeta)</h3>
+          </div>
+          
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Hallazgos Principales</h4>
+            <p class="text-gray-300 mb-4">
+              Se analizaron las relaciones entre masa estelar y masa planetaria, 
+              segmentando por rangos de masa estelar (≤2, 2-4, ≥4 masas solares).
+            </p>
+            <div class="mt-4">
+              <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/relacion_masa_masa.png`} 
+                   alt="Relación masa-masa estrella-planeta" 
+                   class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
+              <p class="text-sm text-gray-400 mt-2 text-center">Scatter plot: Masa planetaria vs Masa estelar</p>
+            </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+            <div class="grid md:grid-cols-3 gap-4 mb-4">
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-blue mb-2">0.22</div>
+                <div class="text-gray-300 text-sm">Error Absoluto Medio (MAE)</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-purple mb-2">0.34</div>
+                <div class="text-gray-300 text-sm">Coeficiente R²</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-blue mb-2">KNN</div>
+                <div class="text-gray-300 text-sm">Modelo de Regresión</div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              <strong>Conclusión:</strong> Aunque existe cierta relación, no es lo suficientemente fuerte como para 
+              establecer una correlación clara entre la masa estelar y planetaria. El R² de 0.34 indica que 
+              el modelo explica solo el 34% de la variabilidad, sugiriendo que otros factores también influyen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div id="resultado-pregunta-3" class="mb-12 scroll-mt-20">
+        <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-4xl font-bold text-accent-blue">3</div>
+            <h3 class="text-2xl font-display font-bold tracking-tight">Frecuencia de Planetas Gigantes en Distintas Estrellas</h3>
+          </div>
+          
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Hallazgos Principales</h4>
+            <p class="text-gray-300 mb-4">
+              Se clasificaron los planetas por tamaño (rocoso, supertierra, neptuno, jupiter) 
+              y se analizó su distribución según la clase espectral de la estrella anfitriona.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Los resultados muestran que las estrellas tipo <strong>F y G</strong> tienen una mayor proporción 
+              de planetas gigantes tipo Júpiter, mientras que las enanas rojas tipo <strong>M</strong> 
+              tienen significativamente menos planetas de este tipo.
+            </p>
+            <div class="mt-4">
+              <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/jupiter_por_clase_espectral.png`} 
+                   alt="Planetas Júpiter por clase espectral" 
+                   class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
+              <p class="text-sm text-gray-400 mt-2 text-center">Frecuencia de planetas gigantes por tipo de estrella</p>
+            </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-2xl font-bold text-accent-blue mb-2">79%</div>
+                <div class="text-gray-300">Accuracy del modelo k-NN</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-lg font-bold text-accent-purple mb-2">Predicción Exitosa</div>
+                <div class="text-gray-300 text-sm">El modelo permite identificar qué tipos de estrellas son más propensas a albergar planetas gigantes gaseosos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pregunta 4 -->
+      <div id="resultado-pregunta-4" class="mb-12 scroll-mt-20">
+        <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-4xl font-bold text-accent-blue">4</div>
+            <h3 class="text-2xl font-display font-bold tracking-tight">Clasificación de Planetas según Contexto Estelar</h3>
+          </div>
+          
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Hallazgos Principales</h4>
+            <p class="text-gray-300 mb-4">
+              Se analizó la distribución de composición planetaria (rocosa vs gaseosa) por tipo de estrella:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+              <li><strong>Estrellas tipo M:</strong> 52.2% rocosos, 47.8% gaseosos</li>
+              <li><strong>Estrellas tipo K:</strong> 57.8% rocosos, 42.2% gaseosos</li>
+              <li><strong>Estrellas tipo G:</strong> 55.3% rocosos, 44.7% gaseosos</li>
+              <li><strong>Estrellas tipo F:</strong> 31.6% rocosos, 68.4% gaseosos</li>
+            </ul>
+            <p class="text-gray-300 mb-4">
+              <strong>Conclusión:</strong> Las estrellas M y K tienden a tener MÁS planetas rocosos, 
+              mientras que las estrellas F tienden a tener MÁS planetas gaseosos.
+            </p>
+            <div class="mt-4">
+              <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/composicion_por_tipo_espectral.png`} 
+                   alt="Distribución de composición planetaria por tipo espectral" 
+                   class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
+              <p class="text-sm text-gray-400 mt-2 text-center">Porcentaje de planetas rocosos vs gaseosos por tipo espectral</p>
+            </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+            <p class="text-gray-300 mb-4">
+              Se compararon y optimizaron dos algoritmos con validación cruzada y optimización de hiperparámetros:
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-xl font-bold text-accent-blue mb-2">SVM RBF</div>
+                <div class="text-gray-300 text-sm">Máquinas de Soporte Vectorial</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-xl font-bold text-accent-purple mb-2">k-NN</div>
+                <div class="text-gray-300 text-sm">k-Vecinos Más Cercanos</div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              Ambos modelos fueron evaluados mediante métricas de precisión, recall, F1-score y matrices de confusión, 
+              permitiendo clasificar la composición planetaria con información únicamente estelar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pregunta 5 -->
+      <div id="resultado-pregunta-5" class="mb-12 scroll-mt-20">
+        <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="text-4xl font-bold text-accent-blue">5</div>
+            <h3 class="text-2xl font-display font-bold tracking-tight">Descubrimientos de Planetas por Tipo y Año</h3>
+          </div>
+          
+          <div class="bg-space-dark rounded-lg p-6 mb-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Hallazgos Principales</h4>
+            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+              <li>Las <strong>supertierras</strong> muestran un aumento significativo desde 2014</li>
+              <li>Picos excepcionales en los años <strong>2014 y 2016</strong> para supertierras</li>
+              <li>Los <strong>gigantes gaseosos</strong> mantienen una frecuencia más constante</li>
+              <li>Existe una tendencia creciente en el tiempo para todos los tipos de planetas</li>
+            </ul>
+            <div class="mt-4">
+              <img src={`${import.meta.env.BASE_URL}/images/visualizaciones/descubrimientos_por_tipo_año.png`} 
+                   alt="Descubrimientos temporales" 
+                   class="w-full max-w-2xl mx-auto rounded-lg border border-gray-600 shadow-lg" />
+              <p class="text-sm text-gray-400 mt-2 text-center">Evolución temporal de descubrimientos</p>
+            </div>
+          </div>
+
+          <div class="bg-space-dark rounded-lg p-6">
+            <h4 class="text-xl font-bold mb-4 text-accent-purple">Resultados del Modelo</h4>
+            <p class="text-gray-300 mb-4">
+              Se implementaron y compararon <strong>cuatro modelos</strong> para predecir el tipo de planeta 
+              basándose únicamente en el año de descubrimiento:
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-lg font-bold text-accent-blue mb-2">SVM RBF</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-lg font-bold text-accent-purple mb-2">Árboles de Decisión</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-lg font-bold text-accent-blue mb-2">Regresión Logística</div>
+              </div>
+              <div class="bg-space-blue p-4 rounded border border-gray-600">
+                <div class="text-lg font-bold text-accent-purple mb-2">k-NN</div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              <strong>Conclusión:</strong> Sí es posible predecir el tipo de planeta descubierto basándose en el año, 
+              ya que el año captura tendencias tecnológicas y metodológicas en la detección de exoplanetas. 
+              Los modelos logran un rendimiento superior al baseline, confirmando que el año de descubrimiento 
+              contiene información relevante sobre las tendencias temporales.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Key Findings -->
+    <!-- Resumen de Rendimiento de Modelos -->
     <section class="mb-16">
-      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Hallazgos Clave</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
-          <div class="mb-4">
-            <Icon name="star" size={48} class="text-accent-blue" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-accent-blue">Tipo Espectral y Tamaño Planetario</h3>
-          <p class="text-gray-300">
-            Las enanas rojas (tipo M) albergan planetas significativamente más pequeños que las estrellas tipo G. 
-            Modelo SVC con <strong>99% de precisión</strong> confirma patrones distintivos.
-          </p>
-        </div>
-
-        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
-          <div class="mb-4">
-            <Icon name="scale" size={48} class="text-accent-purple" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-accent-blue">Relación Masa-Masa</h3>
-          <p class="text-gray-300">
-            La correlación entre masa estelar y planetaria es <strong>moderada (R² = 0.34)</strong>, 
-            sugiriendo que otros factores también influyen en la formación planetaria.
-          </p>
-        </div>
-
-        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
-          <div class="mb-4">
-            <Icon name="jupiter" size={48} class="text-accent-blue" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-accent-blue">Planetas Gigantes</h3>
-          <p class="text-gray-300">
-            Las estrellas tipo F y G tienen mayor proporción de planetas tipo Júpiter. 
-            Modelo k-NN con <strong>79% de accuracy</strong> predice presencia de gigantes.
-          </p>
-        </div>
-
-        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
-          <div class="mb-4">
-            <Icon name="classification" size={48} class="text-accent-purple" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-accent-blue">Clasificación por Composición</h3>
-          <p class="text-gray-300">
-            Es posible clasificar planetas (rocosos vs gaseosos) usando solo características estelares. 
-            Estrellas M/K tienen más rocosos; estrellas F tienen más gaseosos.
-          </p>
-        </div>
-
-        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
-          <div class="mb-4">
-            <Icon name="calendar" size={48} class="text-accent-blue" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-accent-blue">Tendencias Temporales</h3>
-          <p class="text-gray-300">
-            Las supertierras muestran aumento desde 2014 con picos en 2014 y 2016. 
-            El año de descubrimiento es predictivo del tipo de planeta.
-          </p>
-        </div>
-
-        <div class="bg-space-blue rounded-lg p-6 border border-gray-700">
-          <div class="mb-4">
-            <Icon name="target" size={48} class="text-accent-purple" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-accent-blue">Aplicaciones Prácticas</h3>
-          <p class="text-gray-300">
-            Los resultados pueden guiar estrategias de búsqueda de exoplanetas y refinar modelos teóricos 
-            de formación planetaria.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Model Performance -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Rendimiento de Modelos</h2>
+      <h2 class="text-3xl font-display font-bold mb-8 text-center tracking-tight">Resumen de Rendimiento de Modelos</h2>
       <div class="bg-space-blue rounded-xl p-8 border border-gray-700">
         <div class="overflow-x-auto">
           <table class="w-full text-left">
