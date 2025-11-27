@@ -32,13 +32,13 @@ import Icon from "../components/Icon.astro";
       </div>
       <div class="flex justify-center gap-4">
         <a
-          href={new URL("/preguntas", Astro.url).pathname}
+          href={`${import.meta.env.BASE_URL}/preguntas`}
           class="bg-accent-blue hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors"
         >
           Explorar Preguntas
         </a>
         <a
-          href={new URL("/metodologia", Astro.url).pathname}
+          href={`${import.meta.env.BASE_URL}/metodologia`}
           class="bg-space-blue hover:bg-gray-700 border border-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
         >
           Ver Metodología
@@ -194,7 +194,7 @@ import Icon from "../components/Icon.astro";
       </h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <a
-          href={`${new URL("/preguntas", Astro.url).pathname}#pregunta-1`}
+          href={`${import.meta.env.BASE_URL}/preguntas#pregunta-1`}
           class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block"
         >
           <div class="text-2xl font-bold text-accent-blue mb-2">1</div>
@@ -205,7 +205,7 @@ import Icon from "../components/Icon.astro";
           </p>
         </a>
         <a
-          href={`${new URL("/preguntas", Astro.url).pathname}#pregunta-2`}
+          href={`${import.meta.env.BASE_URL}/preguntas#pregunta-2`}
           class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block"
         >
           <div class="text-2xl font-bold text-accent-blue mb-2">2</div>
@@ -216,7 +216,7 @@ import Icon from "../components/Icon.astro";
           </p>
         </a>
         <a
-          href={`${new URL("/preguntas", Astro.url).pathname}#pregunta-3`}
+          href={`${import.meta.env.BASE_URL}/preguntas#pregunta-3`}
           class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block"
         >
           <div class="text-2xl font-bold text-accent-blue mb-2">3</div>
@@ -227,7 +227,7 @@ import Icon from "../components/Icon.astro";
           </p>
         </a>
         <a
-          href={`${new URL("/preguntas", Astro.url).pathname}#pregunta-4`}
+          href={`${import.meta.env.BASE_URL}/preguntas#pregunta-4`}
           class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block"
         >
           <div class="text-2xl font-bold text-accent-blue mb-2">4</div>
@@ -238,7 +238,7 @@ import Icon from "../components/Icon.astro";
           </p>
         </a>
         <a
-          href={`${new URL("/preguntas", Astro.url).pathname}#pregunta-5`}
+          href={`${import.meta.env.BASE_URL}/preguntas#pregunta-5`}
           class="bg-space-blue rounded-lg p-6 border border-gray-700 hover:border-accent-blue transition-colors block"
         >
           <div class="text-2xl font-bold text-accent-blue mb-2">5</div>

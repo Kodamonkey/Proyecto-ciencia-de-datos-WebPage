@@ -201,7 +201,7 @@ import Icon from '../components/Icon.astro';
 
     <!-- Navigation -->
     <div class="text-center mt-12">
-      <a href={new URL('/', Astro.url).pathname} class="bg-accent-blue hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
+      <a href={`${import.meta.env.BASE_URL}/`} class="bg-accent-blue hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
         Volver al Inicio
       </a>
     </div>
