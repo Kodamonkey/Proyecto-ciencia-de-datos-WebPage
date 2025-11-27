@@ -4,7 +4,7 @@ import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout
-  title="Exoplanetas y Estrellas Anfitrionas - Proyecto de Ciencia de Datos"
+  title="Exoplanetas y Estrellas - Análisis de Datos"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Hero Section -->
@@ -21,7 +21,7 @@ import Icon from "../components/Icon.astro";
       </p>
       <div class="mt-8 max-w-4xl mx-auto">
         <img
-          src="/images/visualizaciones/radio_medio_por_tipo_estrella.png"
+          src={`${import.meta.env.BASE_URL}images/visualizaciones/radio_medio_por_tipo_estrella.png`}
           alt="Visualización: Radio medio por tipo de estrella"
           class="w-full rounded-lg border border-gray-600 shadow-xl"
         />

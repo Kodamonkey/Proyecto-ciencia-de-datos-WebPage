@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 ---
 
-<BaseLayout title="Resultados - Exoplanetas y Estrellas">
+<BaseLayout title="Resultados | Exoplanetas y Estrellas">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="text-4xl font-display font-bold mb-12 text-center tracking-tight">Resultados Principales</h1>
 
@@ -29,25 +29,25 @@ import Icon from '../components/Icon.astro';
         </p>
         <div class="grid md:grid-cols-2 gap-6">
           <div>
-            <img src="/images/visualizaciones/radio_medio_por_tipo_estrella.png" 
+            <img src={`${import.meta.env.BASE_URL}images/visualizaciones/radio_medio_por_tipo_estrella.png`} 
                  alt="Radio medio por tipo de estrella" 
                  class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
             <p class="text-sm text-gray-400 text-center">Comparación de radio medio planetario por tipo espectral</p>
           </div>
           <div>
-            <img src="/images/visualizaciones/relacion_masa_masa.png" 
+            <img src={`${import.meta.env.BASE_URL}images/visualizaciones/relacion_masa_masa.png`} 
                  alt="Relación masa-masa" 
                  class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
             <p class="text-sm text-gray-400 text-center">Correlación entre masa estelar y planetaria</p>
           </div>
           <div>
-            <img src="/images/visualizaciones/jupiter_por_clase_espectral.png" 
+            <img src={`${import.meta.env.BASE_URL}images/visualizaciones/jupiter_por_clase_espectral.png`} 
                  alt="Planetas Júpiter por clase espectral" 
                  class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
             <p class="text-sm text-gray-400 text-center">Frecuencia de planetas gigantes por tipo de estrella</p>
           </div>
           <div>
-            <img src="/images/visualizaciones/descubrimientos_por_tipo_año.png" 
+            <img src={`${import.meta.env.BASE_URL}images/visualizaciones/descubrimientos_por_tipo_año.png`} 
                  alt="Descubrimientos temporales" 
                  class="w-full rounded-lg border border-gray-600 shadow-lg mb-2" />
             <p class="text-sm text-gray-400 text-center">Evolución temporal de descubrimientos</p>
